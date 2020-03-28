@@ -146,7 +146,7 @@ header {
 .text p{
 	height: 14px;
   margin:2px 0;
-  padding:2px 0;
+  padding:4px 0;
   font-size: 100%;
   border-bottom-style: dotted;
   border-width: 1px;
