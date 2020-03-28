@@ -144,9 +144,9 @@ header {
 }
 
 .text p{
-	height: 14px;
+	height: 12px;
   margin:2px 0;
-  padding:4px 0;
+  padding:6px 0;
   font-size: 100%;
   border-bottom-style: dotted;
   border-width: 1px;
@@ -160,6 +160,7 @@ header {
   width: 100%;
   height: 100%;
   font-size: 100%;
+  border-width: 1px;
   -webkit-appearance: none;
 }
 
