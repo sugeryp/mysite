@@ -100,8 +100,7 @@ header {
 	width: auto;
 	height: auto;
 	border-color: #AAAAAA;
-	border-bottom-style: solid;
-	color: brown;
+	border-bottom-style: hidden;
 	padding: 10px 10px 10px 15px;
 	margin-left: 50px;
 	margin-right: 50px;
@@ -113,12 +112,14 @@ header {
 	width: 35%;
 	margin-bottom: 12px;
 	border-bottom-style: solid;
+	border-color: brown;
 	border-width: 1px;
 }
 
 .heading h2 {
 	display: inline-block;
 	border-bottom-style: solid;
+	border-color: brown;
 }
 
 .text {
@@ -128,8 +129,9 @@ header {
 
 .text p{
 	height: 15px;
-	border-bottom-style: dotted;
 	line-height: 15px;
+	border-bottom-style: dotted;
+	border-color: brown;
 }
 
 
