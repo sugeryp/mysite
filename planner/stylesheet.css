@@ -50,9 +50,6 @@ div {
 }
 
 input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 .container {
@@ -132,8 +129,6 @@ header {
   font-size: 100%;
   font-weight: bold;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 .heading p{
@@ -150,18 +145,17 @@ header {
 
 .text p{
 	height: 14px;
-  padding:3px 0;
+  margin:2px 0;
+  padding:2px 0;
   font-size: 100%;
+  border-bottom-style: dotted;
+  border-width: 1px;
+  border-color: brown;
 }
 
 .text input{
   display: block;
-  border-top-style: none;
-  border-right-style: none;
-  border-bottom-style: dotted;
-  border-left-style: none;
-  border-width: 1px;
-  border-color: brown;
+  border-style: none;
   outline: none;
   width: 100%;
   height: 100%;
