@@ -128,6 +128,7 @@ header {
   outline: none;
   font-size: 100%;
   font-weight: bold;
+  padding: 0 0;
   -webkit-appearance: none;
 }
 
