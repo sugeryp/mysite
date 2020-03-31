@@ -1,0 +1,185 @@
+html, body,
+ul, ol, li,
+h1, h2, h3, p, a, div {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+
+}
+
+html {
+
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
+}
+
+ul {
+
+}
+
+ol {
+
+}
+
+li {
+
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+p {
+
+}
+
+a {
+
+}
+
+div {
+
+}
+
+input {
+}
+
+.container {
+	width: 1170px;
+	margin: 0 auto;
+}
+
+.heading {
+  height: 26px
+	font-size: 18px;
+	margin-bottom: 12px;
+}
+
+.main {
+
+}
+
+header {
+	height: 65px;
+  width: 100%;
+  background-color: rgba(34, 49, 52, 0.9);
+  position :fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.title {
+	float: left;
+	line-height: 65px;
+	padding: 0 25px;
+	color: white;
+}
+
+.title-text {
+	float: left;
+	line-height: 65px;
+	padding: 0 25px;
+	color: white;
+}
+
+.top-wrapper {
+	width: 100%;
+	padding: 90px 50px 20px 50px;
+}
+
+.explain {
+	line-height: 50px;
+	padding: 10px 25px;
+	font-size: 20px;
+	border-color: #AAAAAA;
+	border-bottom-style: solid;
+}
+
+.vision {
+	width: auto;
+	height: auto;
+	padding: 10px;
+}
+
+.summary {
+  border-style: ridge;
+}
+
+.target {
+  width: 30%;
+  border-color: brown;
+  border-bottom-style: solid;
+  font-weight: bold;
+}
+
+.target input{
+  width: 100%;
+  display: block;
+  border-style: none;
+  outline: none;
+  font-size: 100%;
+  padding: 0 0;
+  -webkit-appearance: none;
+}
+
+.main-wrapper {
+  width: 100%;
+  padding: 90px 50px 20px 50px;
+}
+
+.
+
+.phase {
+	width: auto;
+	height: auto;
+	padding: 10px 10px 10px 15px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 15px;
+}
+
+.phase input{
+  width: 100%;
+  display: block;
+  border-style: none;
+  outline: none;
+  font-size: 100%;
+  padding: 0 0;
+  -webkit-appearance: none;
+}
+
+.phase h2{
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: brown;
+  width: 35%
+}
+
+.text {
+	width: auto;
+  font-size: 12px;
+}
+
+.text p{
+	height: 14px;
+  margin:0px 0 2px 0;
+  padding:2px 0;
+  font-size: 100%;
+  border-bottom-style: dotted;
+  border-width: 1px;
+  border-color: brown;
+}
+
+footer {
+
+}
