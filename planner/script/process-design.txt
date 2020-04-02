@@ -54,12 +54,11 @@ $ブラウザ更新のタイミングをどうするか
 
 開いて
   ・指定のページを開く
-    book→chapterm、自動でtopic、自動でparagraph
+    book→chapterm、topic、paragraph
   ・インデックスページを開く
     book→chapter(index)
     ・指定のページを開く
-      chapter(index)→chapterm→自動でtopic、自動でparagraph
-
+      chapter(index)→chapterm→topic、paragraph
 
 見て
   chapter、topic、paragraph
@@ -78,6 +77,8 @@ $ブラウザ更新のタイミングをどうするか
 消して
   ・value値を変化させる
     topic、paragraphのvalue変化前→topic、paragraphのvalue変化後
+  ・オブジェクトを消す
+  　paragraph、topic、chapter→無し
 
 書き込んで
   ・value値を変化させる
@@ -89,7 +90,7 @@ $ブラウザ更新のタイミングをどうするか
 閉じて
 　・本を閉じる
     chapter、topic、paragraph→book
-  ・indexを開く
+  ・インデックスページを開く
     chapter、topic、paragraph→index
 　・次のページを開く
     chapter、topic、paragraph→chapter、topic、paragraph
@@ -98,4 +99,52 @@ $ブラウザ更新のタイミングをどうするか
 　・指定のページを開く
     chapter、topic、paragraph→chapter、topic、paragraph
 
-●動作の関数への置き換え
+●関数への置き換え
+
+  ・指定のページを開く　openSelectChapter
+    book→chapter、topic、paragraph
+    chapter、topic、paragraph→chapter、topic、paragraph
+    chapter(index)→chapterm→topic、paragraph
+
+  ・インデックスページを開く openIndex
+    chapter、topic、paragraph→index
+    book→chapter(index)
+
+  ・システムにアクセスする accessSeries
+    series→book
+
+  ・value値を変化させる changeValue
+    topic、paragraphのvalue変化前→topic、paragraphのvalue変化後
+
+  ・オブジェクトを追加したとき addObject
+    無し→paragraph、topic、chapter
+
+  ・オブジェクトを消す deleteObject
+  　paragraph、topic、chapter→無し
+
+  ・次のページを開く openNextChapter
+    chapter、topic、paragraph→chapter、topic、paragraph
+
+  ・前のページを開く openPreviousChapter
+    chapter、topic、paragraph→chapter、topic、paragraph
+
+  ・本を閉じる closeBook
+    chapter、topic、paragraph→book
+
+$$DB操作の関数
+  getParagraph
+  getTopic
+　getChapter
+  getVolume
+  getBook
+  getSeries
+  putParagraph
+  putTopic
+  putChapter
+  putVolume
+  putBook
+  newParagraph
+  newTopic
+  newChapter
+  newVolume
+  newBook

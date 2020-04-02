@@ -1,0 +1,154 @@
+$$クラスの設計
+
+Paragraph
+  プロパティ（スキン）
+  htmlID: HTMLのid
+  id: nnn...
+  name: text_nnn..
+  paragraph： valueの値
+  topic: topicのidの配列
+
+  コンストラクター
+    引数無し
+      空のプロパティを用意
+      newID
+      newHtmlID
+    引数 id
+      空のプロパティを用意
+      setInfo
+
+  メソッド
+  showID
+    return id
+  showHtmlID
+    return htmlID
+  showValue
+  　return value
+  newID
+    idをプロパティにセット
+    return　無し
+  newPrivateID
+    privateIDをプロパティにセット
+    return 無し
+  setInfo(id)
+    プロパティにDBの情報をセット
+    return 無し
+
+Topic
+  コンストラクター
+  引数無し
+    空のプロパティを用意
+    newID
+    newHtmlID
+  引数 id
+    空のプロパティを用意
+    setInfo
+    setParagraph
+
+  メソッド
+  setParagraph
+    return paragraphオブジェクトの配列
+
+  showID
+    return id
+  showHtmlID
+    return HtmlID
+  newID
+    idをプロパティにセット
+    return　無し
+  newPrivateID
+    privateIDをプロパティにセット
+    return 無し
+  setInfo(id)
+    プロパティにDBの情報をセット
+    return 無し
+
+Chapter
+  コンストラクター
+  引数無し
+    空のプロパティを用意
+    newID
+    newHtmlID
+    引数 id
+  空のプロパティを用意
+    setInfo
+    setTopic
+
+    メソッド
+    setTopic
+    return topicオブジェクトの配列
+
+    showID
+      return id
+    showHtmlID
+      return showID
+    newID
+      idをプロパティにセット
+      return　無し
+    newPrivateID
+      privateIDをプロパティにセット
+      return 無し
+    setInfo(id)
+      プロパティにDBの情報をセット
+      return 無し
+
+
+Volume
+
+Book
+  コンストラクター
+
+  メソッド
+Series
+
+Human
+  プロパティ（スキン）
+  id: nnn...
+  userID
+  name: 利用者名
+
+  コンストラクター
+  whoAmI
+
+  メソッド
+  whoAmI(userID)
+    DBから利用者情報を取得
+  getParagraph(privateID)
+    return paragraphのオブジェクト
+  getTopic(privateID)
+    return topicのオブジェクト
+　getChapter(privateID)
+    return chapterのオブジェクト
+  getVolume(privateID)
+    return volumeのオブジェクト
+  getBook(privateID)
+    return bookのオブジェクト
+  getSeries(privateID)
+    return seriesのオブジェクト
+  putParagraph
+  putTopic
+  putChapter
+  putVolume
+  putBook
+  newParagraph
+  newTopic
+  newChapter
+  newVolume
+  newBook
+
+
+  引数
+  userID
+
+
+オブジェクト
+  ConvertTable
+  プロパティ
+  　table:オブジェクト(id、htmlID、定数名)の配列
+    関数
+    showNameHtmlID:
+    showNameHtmlID(htmlID)
+     return id
+    showNameID:
+    showNameID(id)
+     return 定数名
