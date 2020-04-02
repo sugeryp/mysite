@@ -1,0 +1,41 @@
+オブジェクトのデザイン
+
+・paragraph
+id: nnn...
+name: text_nnn..
+paragraph： valueの値 = パラグラフ（段落）
+topic: topic(小題）のidの配列　ちなみにsubjectは主題　複数のトピックを持つ・・・複数のトピックに含まれるパラグラフということ
+
+・topic
+id: nnn...
+name: topic_nnn..
+topic: valueの値 = トピック（小題）
+chapter: チャプター（章）のidの配列
+paragraph: paragraphのidの配列
+
+・chapter
+id: nnn...
+name: chapter_nnn..., yyyymmdd
+chapter: valueの値 = チャプター(dd)
+volume: volumeのidの配列
+topic: topicのidの配列
+
+・volume
+id: nnn...
+name: volume_nnn..., yyyymm
+volume: valueの値 = ボリューム（巻）(mm)
+chapter: chapterのidの配列
+book: bookのidの配列
+
+・book
+id: nnn...
+name: book_nnn..., yyyy
+book: valueの値	= 本（yyyy)
+series: seriesのidの配列
+volume: volumeのidの配列
+
+・series
+id: nnn...
+name: series_nnn..., シリーズ名, システム名
+series: システム（システムの実体へのリンク）
+book: bookのidの配列
