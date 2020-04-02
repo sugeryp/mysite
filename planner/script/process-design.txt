@@ -48,32 +48,54 @@ $DB更新のタイミングをいつにするか
 
 $ブラウザ更新のタイミングをどうするか
 
+アクセスして
+  ・システムにアクセスする
+    series→book
+
 開いて
-　・ページを開いたとき
+  ・指定のページを開く
+    book→chapterm、自動でtopic、自動でparagraph
+  ・インデックスページを開く
+    book→chapter(index)
+    ・指定のページを開く
+      chapter(index)→chapterm→自動でtopic、自動でparagraph
+
 
 見て
+  chapter、topic、paragraph
 
 項目を追加して
 　・オブジェクトを追加したとき
+    無し→paragraph、topic、chapter
 
 見て
+  chapter、topic、paragraph
 
 書き込んで
-　・value値に変化があった時
+  ・value値を変化させる
+    topic、paragraphのvalue変化前→topic、paragraphのvalue変化後
 
 消して
-　・value値に変化があった時
+  ・value値を変化させる
+    topic、paragraphのvalue変化前→topic、paragraphのvalue変化後
 
 書き込んで
-　・value値に変化があった時
+  ・value値を変化させる
+    topic、paragraphのvalue変化前→topic、paragraphのvalue変化後
 
 見て
+  chapter、topic、paragraph
 
 閉じて
-　・ページを閉じたとき
+　・本を閉じる
+    chapter、topic、paragraph→book
+  ・indexを開く
+    chapter、topic、paragraph→index
+　・次のページを開く
+    chapter、topic、paragraph→chapter、topic、paragraph
+  ・前のページを開く
+    chapter、topic、paragraph→chapter、topic、paragraph
+　・指定のページを開く
+    chapter、topic、paragraph→chapter、topic、paragraph
 
-次のページを開いて
-
-前のページを開いて
-
-指定のページを開いて
+●動作の関数への置き換え
