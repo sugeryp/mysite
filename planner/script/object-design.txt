@@ -1,0 +1,45 @@
+book
+	文章を構成するオブジェクト群のオブジェクト
+
+bookMaster
+	オブジェクト bookを構築するオブジェクト
+	製本：既存bookを取得する　（オブジェクトを構築してdbから情報を取ってきて入れる）
+		bookを構築して、書き込む。
+		volumeを構築して、書き込む。
+		chapterを構築して、書き込む。
+		topicを構築して、書き込む。
+		paragraphを構築して、書き込む。
+
+	製ノート：新規bookを構築する　（オブジェクトを構築する）
+
+	登録（写本）
+		bookの更新情報をDBに登録する。
+		差分検出登録
+
+	書き込み
+		指定構成要素のvalue値の書き込みを行う。
+
+モノには動く動かないがある！
+
+本は・・・動かんやろ！
+
+scheduleBookMaker
+	scheduleBookを作る HTMLを作る
+	volumeを作る
+	chapterを作る
+	topicを作る
+	paragraphを作る
+	valueに書き込む
+
+scheduleBookMaster
+	scheduleBookから読み込む
+	scheduleBookMakerに製本を依頼する←ユーザから
+	　scheduleBookMakerに製ノートを依頼する
+	　scheduleBookMakerに書き込みを依頼する
+	scheduleBookMakerに製ノートを依頼する←ユーザから
+	scheduleBookMakerに書き込みを依頼する
+
+	bookから読み込む
+	bookMakerに製本を依頼する
+	bookMakerに製ノートを依頼する
+	bookMakerに書き込みを依頼する
