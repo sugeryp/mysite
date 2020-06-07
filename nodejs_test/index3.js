@@ -1,9 +1,9 @@
 const http = require('http')
 const fs = require('fs')
-const homePage = fs.readFileSync('index.html')
-const aboutPage = fs.readFileSync('about.html')
-const contactPage = fs.readFileSync('contact.html')
-const notFoundPage = fs.readFileSync('notfound.html')
+const homePage = fs.readFileSync('html/index.html')
+const aboutPage = fs.readFileSync('html/about.html')
+const contactPage = fs.readFileSync('html/contact.html')
+const notFoundPage = fs.readFileSync('html/notfound.html')
 const server = http.createServer((req, res) =>{
 	if(req.url === '/about')
 		res.end(aboutPage)
