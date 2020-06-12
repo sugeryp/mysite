@@ -7,7 +7,7 @@ openssl-libs.x86_64
 # cd /etc/pki/CA
 # touch index.txt
 # cd private
-# openssl genrsa -aes128 4096 > ca.key.pem 
+# openssl genrsa -aes128 4096 > ca.key.pem
 
 CAの証明書要求を作成
 cd /etc/pki/CA/private
@@ -23,11 +23,11 @@ If you enter '.', the field will be left blank.
 -----
 Country Name (2 letter code) [XX]:JP
 State or Province Name (full name) []:Osaka
-Locality Name (eg, city) [Default City]:Osaka-city Yodogawa-ku   
+Locality Name (eg, city) [Default City]:Osaka-city Yodogawa-ku
 Organization Name (eg, company) [Default Company Ltd]:Hitotsukoto
 Organizational Unit Name (eg, section) []:Resourse Management Center
 Common Name (eg, your name or your server's hostname) []:Central
-Email Address []:aki.sugeryp.com      
+Email Address []:aki.sugeryp.com
 
 Please enter the following 'extra' attributes
 to be sent with your certificate request
@@ -58,12 +58,12 @@ Certificate Details:
             commonName                = Central
             emailAddress              = aki.sugeryp.com
         X509v3 extensions:
-            X509v3 Subject Key Identifier: 
+            X509v3 Subject Key Identifier:
                 74:08:1A:2A:22:1C:81:A7:C1:24:6D:2E:4F:51:7A:AD:03:3F:18:5D
-            X509v3 Authority Key Identifier: 
+            X509v3 Authority Key Identifier:
                 keyid:74:08:1A:2A:22:1C:81:A7:C1:24:6D:2E:4F:51:7A:AD:03:3F:18:5D
 
-            X509v3 Basic Constraints: 
+            X509v3 Basic Constraints:
                 CA:TRUE
 Certificate is to be certified until Jun 12 06:04:22 2120 GMT (36524 days)
 Sign the certificate? [y/n]:y
@@ -75,7 +75,39 @@ Data Base Updated
 
 ルート証明書登録ファイルを作成
 
+# cd /etc/pki/CA/certs
 # openssl x509 -inform pem -in ca.crt.pem -outform der -out ca.crt.der
 
 クライアントブラウザにderファイルを読み込む（GUI操作）
 
+
+サーバー秘密鍵の作成
+
+# cd /etc/pki/tls/private
+# openssl genrsa -aes128 4096 > server.key.pem
+
+サーバー証明書要求用のcnf設定
+# cd /etc/pki/tls
+# cp openssl.cnf openssl-server-req.conf
+# vi openssl-server-req.conf
+
+[ v3_req ]
+subjectAltName = @alt_names #追記
+
+[alt_names]  #追記
+DNS.1 = dev.hitotsukoto.com   #追記
+
+サーバー証明書署名要求の作成
+# openssl req -config /etc/pki/tls/openssl-server-req.cnf -reqexts v3_req -new -key /etc/pki/tls/private/server.key.pem -out /etc/pki/tls/server.req.pem
+
+認証局によるサーバ署名のcnf設定
+
+# cp /etc/pki/tls/openssl.cnf /etc/pki/CA/openssl-ca-sign.cnf
+# vi openssl-ca-sign.cnf
+
+[CA_default]
+copy_extensions = copy #コメントを外す
+
+サーバー証明書の発行
+
+# openssl ca -config /etc/pki/CA/openssl-ca-sign.cnf -policy policy_anything -days 36524 -extensions usr_cert -cert /etc/pki/CA/certs/ca.crt.pem -keyfile /etc/pki/CA/private/ca.key.pem -in /etc/pki/tls/server.req.pem -out /etc/pki/CA/certs/server.crt.pem
