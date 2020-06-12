@@ -1,0 +1,15 @@
+起動ステータス確認
+
+$ sudo systemctl status httpd
+
+自動起動設定確認
+$ sudo systemctl is-enabled httpd
+
+自動起動有効化
+$ sudo systemctl enable httpd
+
+開始
+$ sudo systemctl start httpd
+
+停止
+$ sudo systemctl stop httpd
