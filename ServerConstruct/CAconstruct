@@ -89,7 +89,7 @@ Data Base Updated
 サーバー証明書要求用のcnf設定
 # cd /etc/pki/tls
 # cp openssl.cnf openssl-server-req.conf
-# vi openssl-server-req.conf
+# vi openssl-server-req.cnf
 
 [ v3_req ]
 subjectAltName = @alt_names #追記
