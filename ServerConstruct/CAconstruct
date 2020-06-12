@@ -1,0 +1,81 @@
+モジュール
+openssl.x86_64
+openssl-libs.x86_64
+
+認証局の構築
+
+# cd /etc/pki/CA
+# touch index.txt
+# cd private
+# openssl genrsa -aes128 4096 > ca.key.pem 
+
+CAの証明書要求を作成
+cd /etc/pki/CA/private
+# openssl req -new -key ca.key.pem -out ca.req.pem
+
+Enter pass phrase for ca.key.pem:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [XX]:JP
+State or Province Name (full name) []:Osaka
+Locality Name (eg, city) [Default City]:Osaka-city Yodogawa-ku   
+Organization Name (eg, company) [Default Company Ltd]:Hitotsukoto
+Organizational Unit Name (eg, section) []:Resourse Management Center
+Common Name (eg, your name or your server's hostname) []:Central
+Email Address []:aki.sugeryp.com      
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+
+CAの自己署名証明書を作成(v3領域つき)
+
+# cd /etc/pki/CA/certs
+
+# openssl ca -create_serial -days 36524 -extensions v3_ca -keyfile /etc/pki/CA/private/ca.key.pem -selfsign -in /etc/pki/CA/private/ca.req.pem -out ca.crt.pem
+
+Using configuration from /etc/pki/tls/openssl.cnf
+Enter pass phrase for /etc/pki/CA/private/ca.key.pem:
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number:
+            ad:52:4d:d3:f1:f9:d7:b0
+        Validity
+            Not Before: Jun 12 06:04:22 2020 GMT
+            Not After : Jun 12 06:04:22 2120 GMT
+        Subject:
+            countryName               = JP
+            stateOrProvinceName       = Osaka
+            organizationName          = Hitotsukoto
+            organizationalUnitName    = Resourse Management Center
+            commonName                = Central
+            emailAddress              = aki.sugeryp.com
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                74:08:1A:2A:22:1C:81:A7:C1:24:6D:2E:4F:51:7A:AD:03:3F:18:5D
+            X509v3 Authority Key Identifier: 
+                keyid:74:08:1A:2A:22:1C:81:A7:C1:24:6D:2E:4F:51:7A:AD:03:3F:18:5D
+
+            X509v3 Basic Constraints: 
+                CA:TRUE
+Certificate is to be certified until Jun 12 06:04:22 2120 GMT (36524 days)
+Sign the certificate? [y/n]:y
+
+
+1 out of 1 certificate requests certified, commit? [y/n]y
+Write out database with 1 new entries
+Data Base Updated
+
+ルート証明書登録ファイルを作成
+
+# openssl x509 -inform pem -in ca.crt.pem -outform der -out ca.crt.der
+
+クライアントブラウザにderファイルを読み込む（GUI操作）
+
