@@ -25,7 +25,8 @@ app.get('/index', (req, res) => {
   connection.query(
     'SELECT * FROM items',
     (error, results) => {
-      res.render('index.ejs', {items: results});
+      console.log(result);
+      //res.render('index.ejs', {items: results});
     }
   );
 });
@@ -65,7 +66,6 @@ app.get('/edit/:id', (req, res) => {
 });
 
 app.post('/update/:id', (req, res) => {
-  // 選択されたメモを更新する処理を書いてください
   connection.query(
     'UPDATE items SET name = ? WHERE id = ?',
     [req.body.itemName, req.params.id],
@@ -73,7 +73,6 @@ app.post('/update/:id', (req, res) => {
       res.redirect('/index');
     }
   );
-  // 以下の一覧画面へリダイレクトする処理を削除してください
 });
 
 app.listen(3000);
