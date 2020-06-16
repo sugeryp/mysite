@@ -7,7 +7,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
 var hostDb = fs.readFileSync('./private/hostDb');
-var userNmame = fs.readFileSync('./private/userName');
+var userName = fs.readFileSync('./private/userName');
 var dbpass = fs.readFileSync('./private/dbpass');
 
 const connection = mysql.createConnection({
