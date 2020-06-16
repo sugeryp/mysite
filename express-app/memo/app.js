@@ -11,9 +11,9 @@ var userNmame = fs.readFileSync('./private/host'),
 var pass = fs.readFileSync('./private/dbpass'),
 
 const connection = mysql.createConnection({
-  host: hostdb,
+  host: hostDb,
   user: userName,
-  password: pass,
+  password: dbpass,
   database: 'list_app'
 });
 
