@@ -6,9 +6,9 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
-var hostDb = fs.readFileSync('./private/hostDb');
-var userName = fs.readFileSync('./private/userName');
-var dbpass = fs.readFileSync('./private/dbpass');
+var hostDb = fs.readFileSync('./private/hostDb', 'utf8');
+var userName = fs.readFileSync('./private/userName', 'utf8');
+var dbpass = fs.readFileSync('./private/dbpass', 'utf8');
 
 const connection = mysql.createConnection({
   host: hostDb,
