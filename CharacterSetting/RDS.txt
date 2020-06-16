@@ -1,0 +1,4 @@
+AWS RDS mysqlの文字コードはRDSコンソールのパラメータグループから設定
+
+参考URL:
+https://qiita.com/reoy/items/e355debf1e2b2abd703b
