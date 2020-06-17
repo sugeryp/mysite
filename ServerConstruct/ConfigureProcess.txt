@@ -14,3 +14,20 @@ $ ps o 出力形式
 ex)
 $ ps o pid,user,group,args
 $ ps axo pid,user,group,args
+
+特定のプロセスidのプロセスを表示
+
+$ ps -p pid
+
+ex)pid:1399のプロセスを表示
+$ ps -p 1399
+成形
+$ ps -p 1399 o pid,user,group,args
+
+
+プロセスを終了
+
+$ kill pid
+
+
+
