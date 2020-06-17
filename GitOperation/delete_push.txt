@@ -1,0 +1,12 @@
+バックアップをリポジトリ外に作成する。
+
+直前のコミットを取り消す。
+git reset --hard HEAD^
+
+消したい履歴までコミットの取り消しを繰り返す。
+
+強制的にPushする
+git push -f origin master
+
+参考URL:
+http://www-creators.com/archives/2020

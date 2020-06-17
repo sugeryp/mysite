@@ -1,0 +1,15 @@
+
+作成(DB:list_app, table:items)
+show databases;
+create database list_app;
+use list_app;
+show tables;
+create table items ( id INT AUTO_INCREMENT, name TEXT, PRIMARY KEY (id));
+describe items;
+select * from items;
+insert into items(name) values ('チキンナゲット');
+
+
+削除
+DROP TABLE items;
+DROP DATABASE list_app;

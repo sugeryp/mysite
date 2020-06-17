@@ -1,5 +1,29 @@
+MySQLの文字設定確認
 show variables like '%char%';
 
 
 参考URL:
 https://qiita.com/yukiyoshimura/items/d44a98021608c8f8a52a
+
+
+既存データベースの文字設定（character_set_database）変更
+ALTER DATABASE db_name CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+ALTER DATABASE list_app CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+
+既存のテーブルの文字設定確認
+show table status from items;
+
+参考URL:https://www.softel.co.jp/blogs/tech/archives/1470
+
+既存テーブルの文字設定変更
+alter table items default character set utf8mb4;
+
+
+
+utf8ではなく、utf8mb4を使うべき。
+Mysqlのutf8は日本語含む4桁表記のutf8に対応していないため
+対応版がutf8mb4になる。⇒現象として？？？で表記される。
+
+参考URL:https://tmtms.hatenablog.com/entry/2016/09/06/mysql-utf8
