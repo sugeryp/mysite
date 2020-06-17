@@ -14,7 +14,7 @@ const options = {
   cert: fs.readFileSync(ssl_server_crt)
 };
 
-const PORT = process.env.PORT || 3075;
+const PORT = process.env.PORT || 3000;
 
 const config = {
     channelSecret: '0bfbf70dacd693add0f70867b8747d44',
@@ -52,7 +52,7 @@ async function handleEvent(event) {
   });
 }
 
-const server = https.createServer(options,app);
+const server = https.createServer(options, app);
 
 server.listen(PORT);
 console.log(`Server running at ${PORT}`);
