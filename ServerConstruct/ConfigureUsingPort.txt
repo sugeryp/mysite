@@ -1,0 +1,12 @@
+コマンド実行ユーザが実行しているプロセスが使用しているポートを調べる
+
+lsof -i
+
+特定のポートを調べる
+lsof -i:ポート番号
+lsof -i:80
+
+自分以外が実行しているプロセスについては管理者権限で実行する
+sudo lsof -i:80
+
+参考URL:https://qiita.com/sonoshou/items/cc2b740147ba1b8da1f3
