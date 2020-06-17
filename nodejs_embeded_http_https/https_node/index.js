@@ -5,7 +5,7 @@ const aboutPage = fs.readFileSync('html/about.html')
 const contactPage = fs.readFileSync('html/contact.html')
 const notFoundPage = fs.readFileSync('html/notfound.html')
 const ssl_server_key = '/etc/pki/tls/private/server.key.pem';
-const ssl_server_crt = '/etc/pki/CA/certs/server.crt.pem';
+const ssl_server_crt = '/etc/pki/tls/certs/server.crt.pem';
 const port = 3000;
 var options = {
     key: fs.readFileSync(ssl_server_key),
