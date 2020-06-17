@@ -2,11 +2,11 @@
 
 const express = require('express');
 const line = require('@line/bot-sdk');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3075;
 
 const config = {
-    channelSecret: '作成したBOTのチャンネルシークレット',
-    channelAccessToken: '作成したBOTのチャンネルアクセストークン'
+    channelSecret: '0bfbf70dacd693add0f70867b8747d44',
+    channelAccessToken: 'cJGaJdj4iy3F7TP0TeV1cMu5xtQ4IUvIzw1Asb1PnM6VhuOoYQ0fyiro0S66diak1ZF10OG0TmaJzeBy5wxWLpFot/jjninxuljcjwYOjVgUAIQBb8hsypWY23sxjTRC8CS+dKAqB2qhddJw06K2+QdB04t89/1O/w1cDnyilFU='
 };
 
 const app = express();
