@@ -1,0 +1,10 @@
+https://www.atmarkit.co.jp/ait/articles/1604/07/news018.html
+
+ex)bashのmanから.bash_profileを含む行を"行番号"付きで表示
+man bash | grep -n .bash_profile
+
+ex)bashのmanから.bash_profileを含む行を"行番号"付き前後3行含めてで表示
+man bash | grep -n -3 .bash_profile
+
+ex)bashのmanから.bash_profileを含む行を"行番号"付き前3行、後2行含めてで表示
+man bash | grep -n -B 3 -A 2 .bash_profile

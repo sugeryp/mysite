@@ -1,0 +1,54 @@
+環境変数一覧の表示
+$ printenv
+
+環境変数の定義コマンド
+$ export 定義したい環境変数の名前=環境変数の中身
+
+ex)環境変数(test)を定義
+$ export TEST="This is a test global variable"
+
+特定の環境変数を出力
+$ printenv TEST
+
+変数の出力
+echo $変数名
+
+ex) カレントディレクトリ(pwd)を出力
+echo $PWD
+
+ex) 既存の環境変数に定義を追加する
+export PATH="$PATH:/opt/local/bin"
+
+環境変数の永続化
+下記ファイルへexportコマンドを追記する。
+
+（全ユーザに環境変数を設定したいなら、）
+/etc/profile
+
+（特定ユーザに環境変数を設定したいのであれば、）
+~/.bash_profile 
+
+ex)ローカルに環境変数HOGEを永続化
+
+設定ファイルを追記
+$ vi ~/.bash_profile
+...
+HOGE=/home/hoge
+export HOGE
+
+設定ファイルの反映
+$ source ~/.bash_profile
+
+確認
+$ env | grep HOGE
+HOGE=/home/hoge
+
+ログインシェル起動時の設定ファイル読み込み順序の確認
+
+man bash
+
+
+
+
+参考URL
+https://www.kannon.link/fuku/index.php/2016/09/09/01-3/
