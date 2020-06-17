@@ -1,0 +1,5 @@
+vi,vimで行末に自動で入る改行コード（/n）を削除
+:set binary noeol
+
+そのあとに、
+:wq
