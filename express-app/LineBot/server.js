@@ -2,6 +2,18 @@
 
 const express = require('express');
 const line = require('@line/bot-sdk');
+
+const https = require('https');
+const fs = require('fs')
+
+const ssl_server_key = '/etc/pki/tls/private/server.key.pem';
+const ssl_server_crt = '/etc/pki/tls/certs/server.crt.pem';
+
+const options = {
+  key: fs.readFileSync(ssl_server_key),
+  cert: fs.readFileSync(ssl_server_crt)
+};
+
 const PORT = process.env.PORT || 3075;
 
 const config = {
@@ -40,5 +52,7 @@ async function handleEvent(event) {
   });
 }
 
-app.listen(PORT);
+const server = https.createServer(options,app);
+
+server.listen(PORT);
 console.log(`Server running at ${PORT}`);
