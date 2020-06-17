@@ -17,8 +17,8 @@ const options = {
 const PORT = process.env.PORT || 3000;
 
 const config = {
-    channelSecret: '0bfbf70dacd693add0f70867b8747d44',
-    channelAccessToken: 'cJGaJdj4iy3F7TP0TeV1cMu5xtQ4IUvIzw1Asb1PnM6VhuOoYQ0fyiro0S66diak1ZF10OG0TmaJzeBy5wxWLpFot/jjninxuljcjwYOjVgUAIQBb8hsypWY23sxjTRC8CS+dKAqB2qhddJw06K2+QdB04t89/1O/w1cDnyilFU='
+    channelSecret: '5c541f774441dfe8127e3c4572f065ab',
+    channelAccessToken: 'B+w9PaOBWvQQwluXTxS3SFS+UIwZRS8bP31+TBs8zuDl3LZkVh59JcgAlJkpXC/01ZF10OG0TmaJzeBy5wxWLpFot/jjninxuljcjwYOjVhijCn9jnYun3s8Dawj3p0sSPaK10o0bky2TmiUL6O9mwdB04t89/1O/w1cDnyilFU='
 };
 
 const app = express();
