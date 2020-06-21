@@ -1,0 +1,89 @@
+{"JavaScript":{
+	"environment dependence":{},
+	"common":{
+		"ECMASrript":{
+			"大文字と小文字を区別する":{},
+			"予約語を持つ":{},
+			"文はセミコロンで区切られる":{},
+			"strict mode":{},
+			"実行コンテキスト":{
+                "Script":{},
+				"Module":{}
+			},
+			"comment":{
+				"line comment":{},
+				"multiple line comment":{},
+				"HTML-like comment":{
+					"use":{
+						"backward compatibility":{}
+					}
+				}
+			},
+			"variables and declarations":{
+				"const":{
+					"resubstitution":{
+						"enable":"false"
+					},
+					"initial value":{
+						"required":"true"
+					},
+					"same name valiables":{
+						"enable":"false"
+					}
+				},
+				"let":{
+					"resubstitution":{
+						"enable":"true"
+					},
+					"initial value":{
+						"required":"false",
+						"undefined initial value":"undefined"
+					},
+					"same name valiables":{
+						"enable":"false"
+					}
+				},
+				"var":{
+					"resubstitution":{
+						"enable":"true"
+					},
+					"initial value":{
+						"required":"false",
+						"undefined initial value":"undefined"
+					},
+					"same name valiables":{
+						"enable":"true",
+						"problem":{
+							"replace value":{},
+							"hoisting":{}
+						}
+					}
+				}				
+			},
+			"value evaluation and display":{
+				"evaluation result":{
+					"display":{
+						"console display":{
+							"evaluation operand":{},
+							"error":{
+								"SyntaxError":{
+									"type":"SyntaxError",
+									"discription":{},
+									"filename:linenumber:columnumber":{}
+								},
+								"RunTimeError":{
+									"ReferenceError":{
+										"type":"ReferenceError",
+										"what is not defind":{},
+										"filename:linenumber:columnumber":{}
+									}
+								},
+								"TypeError":{}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}}
