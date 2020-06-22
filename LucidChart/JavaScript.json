@@ -178,6 +178,23 @@
 					}
 				}
 
+			},
+			"operator":{
+				"binary operator":{
+					"plus operator":{
+						"function":{
+							"Number data type":"add two operand" 
+						},
+						"notation":"operand + operand"
+					},
+					"string concatenation operand":{
+						"function":{
+							"String data type":"join two operand"
+						},
+						"notation":"operand + operand"
+					}
+				}
+
 			}
 		}
 	}
