@@ -83,6 +83,101 @@
 						}
 					}
 				}
+			},
+			"data type and literal":{
+				"data type":{
+					"primitive":{
+						"mutability":"immutable",
+						"Boolean data type":"true or false",
+						"Number data type":{
+							"real number":{
+								"integer":["decimal number", "binary number", "octal number", "hexadecimal number"]
+							},
+							"decimal":{}
+						},
+						"String data type":{
+							"expression":"string",
+							"line feed expression":{
+									"line feed escape character":"\n"
+							},
+							"template":{
+								"expression":"string",
+								"defind variable notation":"${str}",
+								"line feed notation":"enter(line feed code)"
+							}
+						},
+						"undefind data type":"value id not defind",
+						"null data type":"value is not exist expicitly",
+						"Symbol data type":{
+							"notation":"variable = Symbol()",
+							"notation synbol's explain":"Synbol(explain)"
+						}
+					},
+					"object data type":{
+						"non rimitive data":{
+							"object":{
+								"notation":"key:value",
+								"key named in object":"propaty",
+								"data type of key":["string", "synbol"],
+								"data type of value":"any defined data type is ok",
+								"reference value":{
+									"dot notation":{
+										"notation":"object identifier.propatie identifier",
+										"ristrict to use":"propaty required to be identifier"
+									},
+									"brachet notation":{
+										"notation":"object identifire[propatie name]"
+									}
+								},
+								"wrapper object":{
+									"string wrapper object":{},
+									"number wrapper object":{},
+									"boolean wrapper object":{}
+								}
+							},
+							"array":{
+								"order of value":{
+									"index number of order":"[index0, index1, index2, ...]"
+								},
+								"reference value":{
+									"notation":"array identifire[index number]"
+								}
+							},
+							"function":{},
+							"regurar expression":{},
+							"etc...":{}
+						}
+					}
+				},
+				"data type cheching operator":"typeof",
+				"literal":{
+					"wahat is the literal":"meta infomation for define data type",
+					"notation of literal":{
+						"String literal":["\"\"", "single quote"],
+						"Number literal":{
+							"integer":{
+								"decimal number":"integer without decoration",
+								"binary number":"0b",
+								"octal number":{
+									"0o":{
+										"strict mode":"enable"
+									},
+									"0":{
+										"strict mode":"disable"
+									}
+								},
+								"hexadecimal number":"0x"
+							}
+						},
+						"Boolean literal":["true", "false"],
+						"null literal":"null",
+						"object literal":"{}",
+						"array literal":"[]",
+						"regular expression literal":"\/\/",
+						"template literal":"back quote"
+					}
+				}
+
 			}
 		}
 	}
