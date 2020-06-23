@@ -192,6 +192,302 @@
 							"String data type":"join two operand"
 						},
 						"notation":"operand + operand"
+					},
+					"minus operator":{
+                        "function":{
+                            "Number data type":"take a operand from a operand"
+                        },
+                        "notation":"operand - operand"
+                    },
+                    "multiplication operator":{
+                        "function":{
+                            "Number data type":"a operand multiply a operand"
+                        },
+                        "notation":"operand * operand"
+                    },
+                    "division operator":{
+                        "function":{
+                            "Number data type":"a operand divided by a operand"
+                        },
+                        "notation":"operand / operand"
+                    },
+                    "surplus operator":{
+                        "function":{
+                            "Number data type":"surplus by divided two operand"
+                        },
+                        "notation":"operand % operand"
+                    },
+                    "exponentiation operator":{
+                        "function":{
+                            "Number data type":"a operand to the power of a operand"
+                        },
+                        "notation":{
+                            "use exponentiation operator":"operand ** operand",
+                            "use method":"Math.pow(operand, operand)"
+                        }
+                    }
+                },
+                "unary operator":{
+                    "unary plus operator":{
+                        "function":{
+                            "Number data type":"convert to same operand",
+                            "String data type":{
+                                "enable to convert to numerical value":"convert to numerical value",
+                                "disable to convert to numerival value":{
+                                    "convert to":"NaN",
+                                    "original name of NaN":"Not-a-Number",
+                                    "evaluation about NaN":{
+                                        "formula and result":{
+                                            "use comparison operator":"console.log(NAN === NAN)=> false",
+                                            "use method":{
+                                                "use typeof":"console.log(typeof NaN) => number",
+                                                "use Number.isNaN(NaN)":"console.log(Number.isNaN(NaN)) => true"
+                                            }
+                                        }
+                                    },
+                                    "usual conversion regime":"use Number constructer function or parseInt function"
+                                }
+                            }
+                        },
+                        "notation":"+operand"
+                    },
+                    "unary minus operator":{
+                        "function":{
+                            "Number data type":"convert to minus numerical value",
+                            "String data type":{
+                                "enable to convert to numerical value":"convert to minus numerical value",
+                                "disable to convert to numerival value":{
+                                    "a value converted to":"NaN"
+                                }
+                            }
+                        },
+                        "notation":"-operand"
+                    },
+                    "increment operator":{
+                        "function":{
+							"Number data type":"a operand plus 1",
+							"String data type":{
+                                "enable to convert to numerical value":"a operand convert to numerical value and plus 1",
+                                "disable to convert to numerival value":{
+                                    "convert to":"NaN"
+                                }
+                            }
+						},
+						"notation":{
+							"prepositional":"++operand",
+							"postpositional":"operand++"
+						},
+						"evaluation":{
+							"prepositional":{
+								"1st evaluation":"operand + 1",
+								"2nd evaluation":"return evaluation result"
+							},
+							"postpositional":{
+								"1st evaluation":"return ebaluation result",
+								"2nd evaluation":"operand + 1"
+							}
+						}
+					},
+					"decrement operator":{
+                        "function":{
+							"Number data type":"a operand minus 1",
+							"String data type":{
+                                "enable to convert to numerical value":"convert to numerical value and minus 1",
+                                "disable to convert to numerival value":{
+                                    "convert to":"NaN"
+                                }
+                            }
+						},
+						"notation":{
+							"prepositional":"--operand",
+							"postpositional":"operand--"
+						},
+						"evaluation":{
+							"prepositional":{
+								"1st evaluation":"operand - 1",
+								"2nd evaluation":"return evaluation result"
+							},
+							"postpositional":{
+								"1st evaluation":"return ebaluation result",
+								"2nd evaluation":"operand - 1"
+							}
+						}
+                    }
+				},
+				"strict equal conparison operator":{
+					"function":{
+						"Number data type":"operator compaires two operands and if operands are same data type and same value, return true",
+						"String data type":"operator compaires two operands and if operands are same data type and same value, return true",
+						"Object data type":"operator compaires two operands and if operands referent same data on memory, return true",
+						"Array data type":"operator compaires two operands and if operands referent same data on memory, return true",
+						"Operands is Null data type":"return true",
+						"Operands is Undefined":"return true",
+						"Null and Undefined":"operator return false",
+						"defference data type":"operator return false"
+					},
+					"notation":"operand === operand"
+				},
+				"strict inequal conparison operator":{
+					"function":{
+						"Number data type":"operator compaires two operands and if operands are different data type or different value, return true",
+						"String data type":"operator compaires two operands and if operands are different data type or different value, return true",
+						"Object data type":"operator compaires two operands and if operands not referent same data on memory, return true",
+						"Array data type":"operator compaires two operands and if operands not referent same data on memory, return true",
+						"Operands is Null data type":"return false",
+						"Operands is Undefined":"return false",
+						"Null and Undefined":"operator return true",
+						"defference data type":"operator return true"
+					},
+					"notation":"operand !== operand"
+				},
+				"equal conparison operator":{
+					"function":{
+						"Number data type":"operator compaires two operands and if operands are same value, return true",
+						"String data type":"operator compaires two operands and if operands are same value, return true",
+						"Object data type":"operator compaires two operands and if operands referent same data on memory, return true",
+						"Array data type":"operator compaires two operands and if operands referent same data on memory, return true",
+						"defference data type":{
+							"Number and String":{
+								"enable to convert string to numerical value":"operator convert string value to numerical value and compaires number data type values",
+								"disable to convert string to numerival value":"operator return false"
+							},
+							"Number and Boolean":{
+								"boolean data type value is true":"operator convert boolean value to number data type 1 and compaires values",
+								"boolean data type value is false":"operator convert boolean value to number data type 0 and compaires values"
+							},
+							"String and Boolean":{
+								"enable to convert string to numerical value":{
+									"boolean data type value is true":"operator convert string value to numerical value and convert boolean value to 1 compaires number data type values",
+									"boolean data type value is false":"operator convert string value to numerical value and convert boolean value to 0 compaires number data type values"
+								},
+								"disable to convert string to numerival value":"operator return false"
+							},
+							"Null and Number":"operator return false",
+							"Null and Boolean":"operator return false",
+							"Null and String":"operator return false",
+							"Undefined and Number":"operator return false",
+							"Undefined and Boolean":"operator return false",
+							"Undefined and String":"operator return false",
+							"Null and Undefined":"operator return true"
+						}
+					},
+					"notation":"operand == operand"
+				},
+				"inequal conparison operator":{
+					"function":{
+						"Number data type":"operator compaires two operands and if operands are difference value, return true",
+						"String data type":"operator compaires two operands and if operands are difference value, return true",
+						"Object data type":"operator compaires two operands and if operands not referent same data on memory, return true",
+						"Array data type":"operator compaires two operands and if operands not referent same data on memory, return true",
+						"defference data type":{
+							"Number and String":{
+								"enable to convert string to numerical value":"operator convert string value to numerical value and compaires number data type values",
+								"disable to convert string to numerival value":"operator return true"
+							},
+							"Number and Boolean":{
+								"boolean data type value is true":"operator convert boolean value to number data type 1 and compaires values",
+								"boolean data type value is false":"operator convert boolean value to number data type 0 and compaires values"
+							},
+							"String and Boolean":{
+								"enable to convert string to numerical value":{
+									"boolean data type value is true":"operator convert string value to numerical value and convert boolean value to 1 compaires number data type values",
+									"boolean data type value is false":"operator convert string value to numerical value and convert boolean value to 0 compaires number data type values"
+								},
+								"disable to convert string to numerival value":"operator return true"
+							},
+							"Null and Number":"operator return true",
+							"Null and Boolean":"operator return true",
+							"Null and String":"operator return true",
+							"Undefined and Number":"operator return true",
+							"Undefined and Boolean":"operator return true",
+							"Undefined and String":"operator return true",
+							"Null and Undefined":"operator return false",
+							"String and String":"unknown"
+						}
+					},
+					"notation":"operand != operand"
+				},
+				"greater or lesser operators":{
+					"common function":{
+						"Number and String":{
+							"enable to convert string to numerical value":"operator convert string value to numerical value and compaires number data type values",
+							"disable to convert string to numerival value":"operator return false"
+						},
+						"Number and Boolean":{
+							"boolean data type value is true":"operator convert boolean value to number data type 1 and compaires values",
+							"boolean data type value is false":"operator convert boolean value to number data type 0 and compaires values"
+						},
+						"String and Boolean":"operator return false",
+						"Null and Number":{
+							"number is not 0":"operator return result to compaire a number data type operand and 0",
+							"number is 0":"operator return false"
+						},
+						"Null and Boolean":{
+							"boolean data type value is true":"operator convert boolean to 1 and null to 0, then operator compaires numerical values",
+							"boolean data type value is false":"operator return false"
+						},
+						"Null and String":{
+							"enable to convert string to numerical value":{
+								"number is not 0":"operator convert string value to numerical value and null to 0, then operator compaires number data type values",
+								"number is 0":"operator return false"			
+							},
+							"disable to convert string to numerival value":"operator return false"
+						},
+						"Undefined and Number":"operator return false",
+						"Undefined and Boolean":"operator return false",
+						"Undefined and String":"operator return false",
+						"Null and Undefined":"operator return false"
+					},
+					"greater operator":{
+						"function":{
+							"Number data type":"operator compaires two operands and if left operand is greater than right operand, return true"
+						},
+						"notation":"operand > operand"
+					},
+					"greater equal operator":{
+						"function":{
+							"Number data type":"operator compaires two operands and if left operand is greater than right operand, else if operands is same, return true"
+						},
+						"notation":"operand >= operand"
+					},
+					"lesser operator":{
+						"function":{
+							"Number data type":"operator compaires two operands and if left operand is lesser than right operand, return true"
+						},
+						"notation":"operand < operand"
+					},
+					"lesser equal operator":{
+						"function":{
+							"Number data type":"operator compaires two operands and if left operand is lesser than right operand, else if operands is same, return true"
+						},
+						"notation":"operand <= operand"
+					}
+				},
+				"bitwise operators":{
+					"common function":{
+						"Number data type":{
+							"binary number":{
+								"operator operate bitwise operation":{}
+							},
+							"decimal or octal or hexa":{
+								"operator operate bitwise operation to operand as binary number":{}
+							}
+						}
+					},
+					"Bitwise And operator":{
+						"function":{
+							"Number data type":{
+								"two operands are 1":"operator return 1",
+								"two operands are not 1":"operator return 0"
+							}
+						},
+						"use":{
+							"bitwise mask":{
+								"operate operand with 0":"operator fill bit with 0",
+								"operato operand with 1":"operator do not nothing"
+							}
+						},
+						"notation":"operand & operand"
 					}
 				}
 
