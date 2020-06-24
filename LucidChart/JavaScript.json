@@ -466,15 +466,22 @@
 				"bitwise operators":{
 					"common function":{
 						"Number data type":{
-							"binary number":{
-								"operator operate bitwise operation":{}
+							"round down left edge bit over 32bit":{
+								"mantissa of operand is or less than 32bit":"operator convert operand",
+								"mantissa of operand is more than 32bit":"operator round down left edge bit over 32bit"
 							},
-							"decimal or octal or hexa":{
-								"operator operate bitwise operation to operand as binary number":{}
+							"conversion":{			
+								"positive number":"operator convert double precision floating point number operand to Signed 32-bit integer",
+								"negative number":"operator convert double precision floating point number operand to Signed 32-bit integer then, convert twos complement of absolute number of 32bit integer type operand",
+								"zero":"operator convert double precision floating point number filled 0"
+							},
+							"return value":{
+								"do not flip a left edge bit by bitwise operation after 32bit conversion":"operator return decimal value of Number data type converted from 32 bits interpreted binary number",
+								"flip a left edge bit by bitwise operation after 32bit conversion":"operator return minus decimal value of Number data type converted from 32 bits interpreted binary number"
 							}
 						}
 					},
-					"Bitwise And operator":{
+					"Bitwise AND operator":{
 						"function":{
 							"Number data type":{
 								"two operands are 1":"operator return 1",
@@ -482,15 +489,58 @@
 							}
 						},
 						"use":{
-							"bitwise mask":{
-								"operate operand with 0":"operator fill bit with 0",
-								"operato operand with 1":"operator do not nothing"
+							"bitwise mask with 0":{
+								"operate operand with 0":"operator return 0",
+								"operate operand with 1":"operator return operand as it is"
 							}
 						},
 						"notation":"operand & operand"
+					},
+					"Bitwise OR operator":{
+						"function":{
+							"Number data type":{
+								"two operands are 0":"operator return 0",
+								"two operands are not 0":"operator return 1"
+							}
+						},
+						"use":{
+							"bitwise mask with 1":{
+								"operato operand with 0":"operator return operand as it is",
+								"operate operand with 1":"operator return 1"
+							},
+							"Additive color mixture":{}
+						},
+						"notation":"operand | operand"
+					},
+					"Bitwise XOR operator":{
+						"function":{
+							"Number data type":{
+								"two operands are same":"operator return 1",
+								"two operands are different":"operator return 0"
+							}
+						},
+						"use":{
+							"bit flip":{
+								"operato operand with 0":"operator return flipped operand",
+								"operate operand with 1":"operator return operand as it is"
+							},
+							"Additive color mixture":{}
+						},
+						"notation":"operand ^ operand"
+					},
+					"Bit nagation operator":{
+						"function":{
+							"Number data type":"operator return flipped operand"
+						},
+						"use":{
+							"bit flip":{
+								"operato operand with 0":"operator return flipped operand",
+								"operate operand with 1":"operator return operand as it is"
+							},
+							"Additive color mixture":{}
+						}
 					}
 				}
-
 			}
 		}
 	}
