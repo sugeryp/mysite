@@ -472,12 +472,17 @@
 							},
 							"conversion":{			
 								"positive number":"operator convert double precision floating point number operand to Signed 32-bit integer",
-								"negative number":"operator convert double precision floating point number operand to Signed 32-bit integer then, convert twos complement of absolute number of 32bit integer type operand",
+								"negative number":"operator convert absolute value of double precision floating point number operand to Signed 32-bit integer then, convert twos complement of 32bit integer type operand",
 								"zero":"operator convert double precision floating point number filled 0"
 							},
 							"return value":{
 								"do not flip a left edge bit by bitwise operation after 32bit conversion":"operator return decimal value of Number data type converted from 32 bits interpreted binary number",
-								"flip a left edge bit by bitwise operation after 32bit conversion":"operator return minus decimal value of Number data type converted from 32 bits interpreted binary number"
+								"flip a left edge bit to 1 from 0 by bitwise operation after 32bit conversion":"operator return minus decimal value of Number data type that converted from twos complement of 32 bits interpreted binary number"
+							},
+							"value range":{
+								"in -2147483648 ~ 2147483647, -0b10000000000000000000000000000000 ~ 0b01111111111111111111111111111111":"positive or negative",
+								"in 2147483648 ~ 4294967295, or 0b10000000000000000000000000000000 ~ 0b11111111111111111111111111111111":"absolutry positive number",
+								"in -4294967295 ~ -2147483649 or -0b11111111111111111111111111111111 ~ -0b10000000000000000000000000000001":"absolutry positive number"
 							}
 						}
 					},
@@ -537,7 +542,48 @@
 								"operato operand with 0":"operator return flipped operand",
 								"operate operand with 1":"operator return operand as it is"
 							},
-							"Additive color mixture":{}
+							"convert -1 to 0":{
+								"String.indexOf() in if statement":{
+									"why use bit nagation operator":"if can not find string, indexOf method return -1, in if statement, 0 treat as false and other than 0 true so notate concisely ",
+									"notation":"if(~str.indexOf(?)) { }",
+									"alter notation 1":"if(str.indexOf(?) !== -1) { }",
+									"alter notation 2":"if(str.includes(?)) { }  //includes method retern false if can not find string so do not need ~"
+								}
+							}
+						},
+						"notation":"~operator"
+					},
+					"Left shift operator":{
+						"function":"operator shift operand by argument bit toward left and round down flow bit at left, and add 0 at right",
+						"returned value":"if right edge bit is 1, return minus decimal number converted from twos comprement of 32bit integer value",
+						"notation":"operand << bit"
+					},
+					"Right shift operator":{
+						"function":"operator shift operand by argument bit toward right and round down flow bit at right, and add bit value that is same as right edge bit value",
+						"returned value":"if right edge bit is 1, return minus decimal number converted from twos comprement of 32bit integer value",
+						"notation":"operand >> bit"
+					},
+					"Zero-fill right shift operator":{
+						"function":"operator shift operand by argument bit toward right and round down flow bit at right, and add 0 bit",
+						"notation":"operand >>> bit"
+					},
+					"Assignment operator":{
+						"function":"operator assign value to variable",
+						"notation":"variable = value",
+						"use with binary operator":{
+							"function":"operator assingn a result value operated operand by binary operator to variable",
+							"notation":"binary operator =",
+							"example notation":"+=, -=, *=, /=, %=, <<=, >>=, >>>=, &=, ^=,|="
+						},
+						"Destructuring assignment":{
+							"Array":{
+								"function":"operator assingn right operand array element value to left operand array element to have correspond index",
+								"notation":"array operand = array operand"
+							},
+							"Object":{
+								"function":"operator assingn right operand object element value to left operand array element to have correspond propaty",
+								"notation":"object operand = object operand"
+							}
 						}
 					}
 				}
