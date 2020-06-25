@@ -584,8 +584,87 @@
 								"function":"operator assingn right operand object element value to left operand array element to have correspond propaty",
 								"notation":"object operand = object operand"
 							}
+						},
+						"Ternary operator":{
+							"function":{
+								"Ecaluation result of conditional is true":"operator return evaluation result of left formula",
+								"Ecaluation result of conditional is false":"operator return evaluation result of right formula"
+							},
+							"notation":"variable = conditional formula operand ? left formula operand : right formula operand",
+							"use":{
+								"change Initial value of variable by condition":{
+									"alter notation":{
+										"if statement":{
+											"notation":"let variable; if(conditional formula) {variable = left formula}, else {variable = right formula}"
+										}
+									}
+								}
+							}
+						}
+					},
+					"Boolean operator":{
+						"AND operator":{
+							"function":{
+								"operands are true":"operator return true",
+								"operands are not true":{
+									"left operand is false":"operator return false, operator do not evaluate right operand",
+									"left operand is true":{
+										"right operand is false":"operator return false",
+										"right operand is number":"operand return left operand number"
+									},
+									"left operand is number data type 0":"operand retun 0",
+									"left operand is number data type other than 0":"left operand return true, and operator operate"
+								}
+							},
+							"notation":"operand && operand"
+						},
+						"OR operator":{
+							"function":{
+								"operands are false":"operator return false",
+								"operands are not false":{
+									"left operand is true":"operator return true",
+									"left operand is false":"operator return right operand evaluation result value",
+									"left operand is number data type value":{
+										"left operand is 0":"operator return right operand",
+										"left operand is other than 0":"operator return left operand"
+									}
+								}
+							},
+							"notation":"operand || operand"
+						},
+						"NOT operator":{
+							"function":{
+								"Boolean data type":{
+									"operand is true":"operator return false",
+									"operand is false":"operator return true"
+								},
+								"Number data type":{
+									"operand is 0":"operator return true",
+									"operand is not 0":"operator return false"
+								},
+								"String data type":{
+									"operand is empty":"operator return true",
+									"operand is not empty":"operator return false"
+								}
+							},
+							"use":{
+								"convert to boolean data type":{
+									"how to use":"!! operand",
+									"alter notation":{
+										"example":"const str = jj , !!str ⇒　str.length > 0"
+									}
+								}
+							},
+							"notation":"!operand"
 						}
 					}
+				},
+				"Grouping operator":{
+					"function":"operators expressly evaluate grouping operand first",
+					"notation":"(operand)"
+				},
+				"Commma operator":{
+					"function":"operators expressly evaluate operands from left to right"
 				}
 			}
 		}
