@@ -667,6 +667,26 @@
 					"function":"operators expressly evaluate operands from left to right"
 				}
 			}
+		},
+		"implicit type conversion":{
+			"function":"operator convert operad data type before execute operate",
+			"type conversion rules":{
+				"any data type to Boolean":{
+					"falsy":{
+						"conversion rule":"falsy value vonverted to false",
+						"value of falsy":"false, undefined, null, 0, NaN, \"\""
+					}
+				},
+				"any data type value other than falsy":"operator convert various data type value dependent on operator"
+			},
+			"Explicit type conversion":{
+				
+			}
+		},
+		"function and declaration":{
+			"function declaration":{
+				"function":{}
+			}
 		}
 	}
 }}
