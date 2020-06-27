@@ -2,11 +2,11 @@
 	"environment dependence":{},
 	"common":{
 		"ECMASrript":{
-			"大文字と小文字を区別する":{},
-			"予約語を持つ":{},
-			"文はセミコロンで区切られる":{},
+			"distinguish between upper and lowercase letters":{},
+			"habe reserved word":{},
+			"separate sentence by semicoron":{},
 			"strict mode":{},
-			"実行コンテキスト":{
+			"execute context":{
                 "Script":{},
 				"Module":{}
 			},
@@ -668,24 +668,179 @@
 				}
 			}
 		},
-		"implicit type conversion":{
-			"function":"operator convert operad data type before execute operate",
-			"type conversion rules":{
-				"any data type to Boolean":{
-					"falsy":{
-						"conversion rule":"falsy value vonverted to false",
-						"value of falsy":"false, undefined, null, 0, NaN, \"\""
-					}
-				},
-				"any data type value other than falsy":"operator convert various data type value dependent on operator"
+		"Type conversion":{
+			"implicit type conversion":{
+				"function":"operator convert operad data type before execute operate",
+				"type conversion rules":{
+					"any data type to Boolean":{
+						"falsy":{
+							"conversion rule":"falsy value vonverted to false",
+							"value of falsy":"false, undefined, null, 0, NaN, \"\""
+						}
+					},
+					"any data type value other than falsy":"operator convert various data type value dependent on operator"
+				}
 			},
 			"Explicit type conversion":{
-				
+				"to Boolean":{
+					"Boolean constructor function":{
+						"function":{
+							"falsy value":"if orgument is falsy value, function return false",
+							"not falsy value":"function return true"
+						},
+						"notation":"Boolean(orgument)"
+					}
+				},
+				"to String":{
+					"String constractor function ":{
+						"from Primitive data type value":{
+							"String data type value":"function return as it is",
+							"true, false, null, undefined symbol":"return argument as string",
+							"Synbol(exlain)":"return Synbol(exopain) as string"
+						},
+						"from object data type value":{
+							"array":"return elemens => element, element, ・・・・",
+							"object":"return [object object]",
+							"function(){}":"return function(){}",
+							"() => {}":"return () => {}"
+						},
+						"notation":"String(argument)"
+					},
+					"to Number":{
+						"Number constructor function":{
+							"parseInt":{
+								"function":"return number as integer",
+								"notation":"Number.parceInt(String, base number), base number is 10 or 8 or 2or 16"
+							},
+							"parseFloat":{
+								"function":"return number as floating point number",
+								"notation":"Number.parseFloat(String)"
+							},
+							"argument contain other than number":{
+								"contain number":"ignore other than number, and return number",
+								"do not contaion number":"return NaN"
+							},
+							"isNaN":{
+								"function":"evaluate argument is Nan or not",
+								"notation":"Number.isNaN(argument)"
+							},
+							"charactaristic of Nan":{
+								"operation result":"if NaN is operand, any operator return NaN regardless other operand",
+								"NaN is not mach itself":"=== operator evaluate NaN === NaN to false"
+							}
+						}
+					}
+				}
 			}
 		},
 		"function and declaration":{
-			"function declaration":{
-				"function":{}
+			"function object":{
+				"function is a object that put together formulas or input/output":{
+					"function has pre status and post status essentially":{},
+					"function enable to contain operation target essentially":{}
+				}
+			},
+			"dummy argument":{
+				"dummy argument is operation target":{},
+				"function":"contain argument value",
+				"notation":"(argument, argument, argument, ..)",
+				"assingnment argument value to dummy argument":{
+					"argument is less than dummy argument":{
+						"dummy argument do not have default argument":"remeinder dummy argument value is undefined",
+						"dummy argument have default argument":"remeinder dummy argument value is default argument value",
+						"default argument":{
+							"notation:":"(dummy argument = default argument, dummy argument = default argument)",
+							"alternate notation":"function function name(argument) {const arg = argument || default}",
+							"important point of alternate notation":"if arugument is empty strign value, argument return default"
+						}
+					},
+					"arguments are more than dummy argument":{
+						"function ignore remeinder argument":{}
+					},
+					"variable arguments":{
+						"rest parameters":{
+							"notation":"(argument, ...rest parameters) rest parameters is end of arguments",
+							"function":"restparameters has array of all remeinder arguments orderd by permutation"
+						},
+						"spred syntax":{
+							"notation":"function(...array)",
+							"function":"call operator spread array and store element to dummy arguments"
+						},
+						"arguments":{
+							"arguments is specific variable onlu used in function":{
+								"arguments is array-like object, but not Array":{
+									"argument contain elements having index, and call by index like array":{
+										"arguments do not have array method":{}
+									}
+								}
+							},
+							"notation":{
+								"function fn() {x = arguments[0]}":{}
+							}
+						},
+						"Destructuring assignment":{
+							"object":{},
+							"array":{}
+						}
+					}
+				}
+			},
+			"function expression":{
+				"function declaration":{
+					"notation":"function function name(dummy argument, dummy argument, ..) {return return value}",
+					"call with function name":{
+						"notation":"function name(argumen, argument, ...)"
+					}
+				},
+				"function formula":{
+					"without function name":{
+						"notation":"const variable = function() {}",
+						"call function notation":"variable()",
+						"function without function name is called annonymus function":{},
+						"arrow function":{
+							"notation":"const variable = () => {}",
+							"elipsis":{
+								"const variable = a argument => {}":{
+									"elipisis ()":"if dummy argument is one, function do not need ()",
+								"const variable = argument => argument * 2;":{
+									"elipisis {} and return":"if function has only one formula, function do not need blocks and return, and return evaluation of formula"
+								}
+							}
+						}
+					},
+					"with function name":{
+							"const variable = function function name() {}":{
+								"function name is valid only in the function":{
+									"use":"recursive call in function"
+								}
+							}
+						}
+					}
+				},
+				"function declaration with same function name":{
+					"override":"function name is overrided with last function"
+				}
+			},
+			"call back function":{
+				"function":{
+					"call back function is argument, and is executed in caller function":{
+						"caller function is nemed higher-order function":{},
+						"exampele":"const array = [1, 2, 3]; const output = value => console.log(value); array.forEach(output);",
+						"alterate notation of exampe":"const array = [1, 2, 3];, array.forEach(value => console.log(value););"
+					}
+				}
+			},
+			"method":{
+				"method is function that is propaty value of object":{
+					"notaion":"const obj = {method:()=>{}, otherpropaty:othervalue}"
+				},
+				"assingment function to propaty":{
+					"alternate notation":"object.method = () => {};"
+				},
+				"call method":{
+					"notation":"obj.method()"
+				},
+				"abbreviated notation":"const obj = {methodname(argument) {return argument;}, otherpropaty:othervalue}"
 			}
 		}
 	}
