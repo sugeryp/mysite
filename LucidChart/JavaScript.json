@@ -842,6 +842,83 @@
 				},
 				"abbreviated notation":"const obj = {methodname(argument) {return argument;}, otherpropaty:othervalue}"
 			}
+		},
+		"Statement and Expression":{
+			"JavaScript is struvtured with Statements and Expressions":{},
+			"Expression":{
+				"function":{
+					"evaluate and return evaluation value":{
+						"expression evaluate statement itself and retrun evaluation value":{},
+						" assignment operator can assign evaluation value to variable":{}
+					}
+				},
+				"example":"literal value, set of operand and operator, function"
+			},
+			"Statement":{
+				"step to process is named statement":{
+					"one step is one statement":{}
+				},
+				"notation":"statement; statement end at semicolon",
+				"example":{
+					"if satement, for stetement":"if and for do not evaluate and do not return evaluation value",
+					"expression statement":{
+						"simple substance expression":"one step expression is one statement",
+						"notation":"expression;"
+					},
+					"block stetement":{
+						"block":{
+							"function":"block put together multiple statements",
+							"notation":"{} ,statement block statement do not need semicolon"
+						},
+						"notation":"if statement end at block, statement do not need semicolon"
+					}
+				}
+			}
+
+		},
+		"conditional branch":{
+			"condition":"condition is premitive recognition as same and different, that is expanded preposition and postposition",
+			"if statement":{
+				"single condition":{
+					"notation":"if (boolean data type value) statement; , statement is usualy used block{}",
+					"function":"if boolean data type value is true, if statement process postposition statement",
+					"recognition":"that condition is true is preposition, and statement is postposition",
+					"else statement":{
+						"notation":"if (boolean data type value) {} else statement;, else need that notation that if () {} before else, if elipsis {} and postposition statement of true is used semicolon cleary supplement {}",
+						"function":"if beelean data type is false, if statement process postposition else statement",
+						"recognition":"that condition is false is preposition, and else statement is postposition"
+					}
+				},
+				"common function":"postposition statement is nothing, if-statement do not process any statemens, not return preposition condition and branch to false",
+				"multiple condition":{
+					"use":"postposition statement is conditional branch",
+					"if condition is false":{
+						"else if statement":{
+							"notation":"if(boolean) {} else if(boolean data type) statement; , {} is need same as else statement",
+							"function":"if boolean data type value of else if is true, if statement process postposition statement",
+							"recognition":"else statement is conditional branh",
+							"attention point":"if else-statement is true and process statement, if-statement end, so that post else-statement or else-if-statement is not processed"
+						}
+					},
+					"if condition is true":{
+						"nested-if statement":{
+							"notation":"if(boolean) if(boolean data type) statement;",
+							"function":"if nested boolean data type value is true, if-statement process nested postposition statement",
+							"recognition":"if statement is conditional branh",
+							"attention point":"if statement is false, and postposition statement is nothing, if-statement end, so that do not return to preposition condition"
+						}
+					}
+				}
+			},
+			"swich statement":{
+				"recognition":"that two conditions are same is preposition, and statement is postposition",
+				"notation":"switch (condition expression) {case expression: statement; break; case expression statement; break; default: statement; break; , swith statement neet block",
+				"function":"switch-statement evaluate condition expression, and evaluate case expression, and evaluate with strict equal operator two evaluation value, if evaluate and return true, process case statement",
+				"attention point":"if === oparator return true, switch-statement  do not evaluate next case expression, and process next case statement unconditionaly",
+				"break statement":{
+					
+				}
+			}
 		}
 	}
 }}
