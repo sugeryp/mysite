@@ -916,8 +916,41 @@
 				"function":"switch-statement evaluate condition expression, and evaluate case expression, and evaluate with strict equal operator two evaluation value, if evaluate and return true, process case statement",
 				"attention point":"if === oparator return true, switch-statement  do not evaluate next case expression, and process next case statement unconditionaly",
 				"break statement":{
-					
+					"function":"end statement to include break",
+					"notation":"break;"
 				}
+			}
+		},
+		"loop and iterative processing":{
+			"recognition":"do same thing literatively",
+			"while statement":{
+				"recognition":"preposition condition is true, and process postposition statement iteratively, end that preposition condition is false",
+				"alternate recognition":"do if-statement iteratively, end that condition of if-statement is false",
+				"function":"while statement evaluate condition, if condition is true, process statement, and next while-statement iteratively, end that condition of if-statement is false",
+				"notation":"while (condition expression) {statement;} , if while statement is elipsised {}, supplement {}, but end at ;",
+				"attention point":"preposition condition of if-statement is always true, while-statement process if-statement unlimitedly"
+			},
+			"do-while statement":{
+				"recognition":"process preposition statement, and postposition condition is true iteratively, end to postposition condition is false",
+				"function":"while statement process statement, and evaluate condition, if condition is true, process next while-statement iteratively, end that condition of if-statement is false",
+				"notation":"do {statement;} while (condition expression);",
+				"attention point":"preposition condition of if-statement is always true, while-statement process if-statement unlimitedly"
+			},
+			"for statement":{
+				"recognition":"preposition condition is true, and process postposition statement iteratively, end that preposition condition is false",
+				"alternate recognition":"do if-statement iteratively, end that condition of if-statement is false or same as while statement",
+				"notation":"for (initial expression; condition expression; inclemental expression) {statement;}",
+				"function":"for statement evaluate condition, if condition is true, process statement, and process next for statement. next is that process inclemental expression, and evaluate condition expression , if condition is trut, process statement and next for statement iteratively, end that condition of if-statement is false",
+				"attention point":"evaluation result of condition expression is always true, for-statement process for-statement unlimitedly"
+			},
+			"forEach method of Array":{
+				"function":{
+					"forEach method is propaty value of Array object":"{Array object:{Array:[element, element, ...], forEach:method, ...}}",
+					"forEach-method assign element to dummy argument of callback-function and process function expression, process each element one by one, from index 0 to last index":{},
+					"callback function":"callback function is function expression to be assigned to dymmy argument of function",
+					"higher-order function":"higher-order function is function to assign callback function to dummy argument"
+				},
+				"notation":"const array = [1, 2, 3]; array.forEach(callback dummy argument => {statement;} , {} is need, but statement is one expression, able to elipsis {} without )"
 			}
 		}
 	}
