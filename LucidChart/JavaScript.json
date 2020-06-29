@@ -916,7 +916,7 @@
 				"function":"switch-statement evaluate condition expression, and evaluate case expression, and evaluate with strict equal operator two evaluation value, if evaluate and return true, process case statement",
 				"attention point":"if === oparator return true, switch-statement  do not evaluate next case expression, and process next case statement unconditionaly",
 				"break statement":{
-					"function":"end statement to include break",
+					"function":"end switch statement to include break",
 					"notation":"break;"
 				}
 			}
@@ -943,14 +943,84 @@
 				"function":"for statement evaluate condition, if condition is true, process statement, and process next for statement. next is that process inclemental expression, and evaluate condition expression , if condition is trut, process statement and next for statement iteratively, end that condition of if-statement is false",
 				"attention point":"evaluation result of condition expression is always true, for-statement process for-statement unlimitedly"
 			},
-			"forEach method of Array":{
-				"function":{
-					"forEach method is propaty value of Array object":"{Array object:{Array:[element, element, ...], forEach:method, ...}}",
-					"forEach-method assign element to dummy argument of callback-function and process function expression, process each element one by one, from index 0 to last index":{},
-					"callback function":"callback function is function expression to be assigned to dymmy argument of function",
-					"higher-order function":"higher-order function is function to assign callback function to dummy argument"
+			"method of Array":{
+				"forEach":{
+					"function":{
+						"forEach method is propaty value of Array object":"{Array object:{Array:[element, element, ...], forEach:method, ...}}",
+						"forEach method assign element to dummy argument of callback-function and process function expression, process each element one by one, from index 0 to last index":{},
+						"callback function":"callback function is function expression to be assigned to dymmy argument of function",
+						"higher-order function":"higher-order function is function to assign callback function to dummy argument"
+					},
+					"notation":"const array = [1, 2, 3]; array.forEach(callback dummy argument => {statement;} , {} is need, but statement is one expression, able to elipsis {} without )"	
 				},
-				"notation":"const array = [1, 2, 3]; array.forEach(callback dummy argument => {statement;} , {} is need, but statement is one expression, able to elipsis {} without )"
+				"some":{
+					"function":{
+						"some method is assign element to dummy argument of callback-function and process function expressoin, process each element one by one, from index 0 to last index ,to end that call-back function return true or end of elements":{
+							"if call-back function return true":"some method return true and end",
+							"if call-back function that its dummy argument assigned last element of array return false":"some method return false and end"
+						}
+					},
+					"notation":"const array = [1,2,3]; array.some(x => {rerutn express})"
+				},
+				"filter":{
+					"function":{
+						"forEach method assign element, index, array to dummy argument of callback-function and process function expression, process each element one by one, from index 0 to last index, and return array":{
+							"if callback function returned true":"assign element to array to be returned value"
+						}
+					}
+				}			
+			},
+			"break statement":{
+				"function":"end for or while or do-while statement ,to include break",
+				"notation":"break;",
+				"use":"while (condition){if(if condition){break;}};"
+			},
+			"continue statement":{
+				"function":"end for or while or do-while statement, to include continue, and continue to process next while or do-while statement",
+				"notation":"continue",
+				"use":"while (condition){if(if condition){continue;}};"
+			},
+			"for...in statement":{
+				"function":{
+					"variable in for...in statement":" for...in statement assign object propaty to variable, and process statement iteratively till end to last propaty "
+				},
+				"notation":"for (variable in object) {statement;}",
+				"use":"const obj = {a:1, b:2, c:3}; for (x in obj) {console.log(`x:${obj[x]}`);}"
+			},
+			"for...of statement":{
+				"function":"for...of statement assign propaty value to variable and process statement iteratively till end to last propaty",
+				"notation":"for (variable of iterable object){statement;}",
+				"iterable object":{
+					"definition":"iterable object is object to have iterable method",
+					"iterable method":"iterable method is process to prosess iteratively",
+					"example":"array abject, string object"
+				}
+			}
+		},
+		"object":{
+			"recognition":{
+				"object":"target to recognize as it is",
+				"propatie":"element object to have, and be able to name element"
+			},
+			"function":{
+				"object is set of properties":{
+					"propateie":{
+						"propatie is pair of key and value":{
+							"recognition":{
+								"key":"element name",
+								"value":"element as it is"
+							}
+						}
+					}
+				}
+			},
+			"notation":{
+				"object literal":"{}",
+				"object":{
+					"{key : value}":{
+						"quote of propatie name is be able to elipsis":""
+					}
+				}
 			}
 		}
 	}
