@@ -1089,14 +1089,19 @@
 				"in operator":{
 					"function":{
 						"propertie is existe":"in operator return true",
-						"propertie is not existe":"in operator return false"
+						"propertie is not existe":"in operator return false",
+						"inheritance source":{
+							"propertie is existe in inheritance source":"Serch inheritance source property and return true",
+							"propertie is not existe in inheritance source":"Serch inheritance source property and return false"
+						}
 					},
 					"notation":"key in obj , (propertie name in object name)"
 				},
 				"hasOwnProperty method":{
 					"function":{
 						"propertie is existe":"object return true",
-						"propertie is not existe":"object return false"
+						"propertie is not existe":"object return false",
+						"inheritance source":"do not serch inheritance source"
 					},
 					"notation":"obj.hasOwnProperty(key)"
 				}
@@ -1157,6 +1162,345 @@
 									}
 								}
 							}
+						}
+					}
+				}
+			}
+		},
+		"Prototype Object":{
+			"Structure of Object":{
+				"Object":{
+					"prototype":{
+						"hasOwnProperty":{},
+						"toString":{},
+						"valueOf":{},
+						"etc":{}
+					}
+				}
+			},
+			"inheritance of prototype object":{
+				"object literal":"object literal create object to inherit prototype object",
+				"create method":{
+					"assign Object.prototype":{
+						"object method":"created object has prototype object",
+						"notation":"Object.create(Object.prototype)"
+					},
+					"assign null":{
+						"object method":"created object do not have any inheritance properties",
+						"notation":"Object.create(null)",
+						"use":"Object.create(null) used for Map before ES2015"
+					}
+				}
+			},
+			"object has same propatie name in prototype object and instance object":"object use instance propatie prioritize",
+			"Array prototype":{
+				"Object and Array":"Array has Array prototype object and Array prototype inherit Object prototype",
+				"array literal":"array literal create array to inherit array prototype object and object prptotype object"
+			}
+		},
+		"Array":{
+			"recognition":{
+				"object has separate propaties":{}
+			},
+			"Create array and access":{
+				"Create array":{
+					"array literal":{
+						"function":"create array",
+						"notation":"[element, element, element]"
+					},
+					"element":{
+						"recognition":"properties of array",
+						"function":"element store any value",
+						"element value":"null, undefined, Synbol, String, Number, Object, Array, etc...",
+						"variable":"variable is able to be element but evaluate before to finish statement",
+						"no element":{
+							"undefined":"if element do not be exist, return undefined",
+							"notation":"[, , , , element, ,]"
+						}
+					},
+					"create two-dementional array":{
+						"notation":"[[], [], []]"
+					}
+				},
+				"Access to array element":{
+					"index":{
+						"recognition":"name of element",
+						"function":"specify element",
+						"data type":"index is String data type",
+						"notation":"array[index]"
+					},
+					"access tp two-dementional array":{
+						"index":{
+							"function":"evaluate element one by one from left to right",
+							"notation":"array[][]"
+						}
+					}
+				},
+				"length method":{
+					"function":"length method return length of array",
+					"notation":"array.length",
+					"use":"access to  element to have last index",
+					"example":"array[array.length - 1]"
+				}
+			},
+			"Discriminate Object or Array":{
+				"Array prototype":{
+					"isArray method":{
+						"function":"discriminate array from object",
+						"notation":"Array.isArray(obj)"
+					}
+				}
+			},
+			"Destructuring assignment":{
+				"function":"assign left array element value to ritht array variable as element",
+				"notation":"const array[variable, variable, ...] = array",
+				"point of evaluate element":"evaluate variable after executetion destructuring assignment"
+			},
+			"Find element from Array":{
+				"Get index":{
+					"indexOf method":{
+						"function":"method operate strict ecual operator with argument and each element, if evaluate true retrun Number Data type index of element, else return Number data type -1",
+						"notation":"array.indexOf(value)",
+						"Other than object":"if array incrude the argument value, ==== oparator evaluate true, and return index",
+						"Object":{
+							"same object":{
+								"function":"==== oparator evaluate true, and return index",
+								"notation":"obj1 = {}, array = [obj1], array.indexOf(obj1)"
+							},
+							"other object to have same properties":{
+								"function":"==== oparator evaluate false, and return -1",
+								"notation":"obj1 = {}, array = [obj1], array.indexOf({})",
+								"alternate notation":{
+									"findIndex method":{
+										"function":"method assign each element to callback function one by one , if callback function return true, method return Number data type index, else return -1",
+										"notation":"array.findIndex((obj) => {return express})"
+									}
+								}
+							}
+						}
+					}
+				},
+				"Get element":{
+					"find method":{
+						"function":"method assign each element to callback function one by one , if callback function return true, method return element, else return -1",
+						"notation":"array.find(call backfunction)",
+						"example":"variable = array.find((obj) => {return express}) console.log(variable)"
+					},
+					"findIndex method":{
+						"function":"method assign each element to callback function one by one , if callback function return true, method return Number data type index, else return -1",
+						"notation":"array.findIndex(call backfunction)",
+						"example":"variable = array.findIndex((obj) => {return express}); console.log(array[variable])"
+					},
+					"indexOf method":{
+						"example":"variable = array.indexOf(value); console.log(array.[variable])"
+					},
+					"Get elements in Specified range index":{
+						"slice method":{
+							"function":"return elements from 1st argument to 2nd argument, if do not assign end index to 2nd dummy argument",
+							"notation":"array.slice(start index, end index)"
+						}
+					}
+				},
+				"Get Boolean valuem that array incrud a element or not":{
+					"indexOf method":{
+						"example":"variable = array.indexOf(value); if(value !== -1) retult = true, else result = false"
+					},
+					"includes method":{
+						"function":"method operate strict ecual operator with argument and each element, if evaluate true retrun true, else return false",
+						"notation":"array.includes(value)"
+					}
+				},
+				"Push and Delete element":{
+					"Push":{
+						"Push element to end":{
+							"push method":{
+								"function":"push value to new element to be end of array",
+								"notation":"array.push(value)",
+								"return value":"length of array to be status after method operate"
+							}
+						},
+						"Push element to top":{
+							"unshift method":{
+								"function":"push value to new element to be top of array",
+								"notation":"array.unshift(value)",
+								"return value":"length of array to be status after method operate"
+							}
+						}
+					},
+					"Delete":{
+						"Delete element from end":{
+							"pop method":{
+								"function":"pop element from end",
+								"notation":"array.push()",
+								"return value":"deleted element value"
+							}
+						},
+						"Delete element from top":{
+							"shift method":{
+								"function":"pop element from top",
+								"notation":"array.shift()",
+								"return value":"deleted element value"
+							}
+						}
+					}
+				},
+				"Merge arrays":{
+					"concat method":{
+						"function":"array merge an other array",
+						"noatation":"array.concat(value)",
+						"value is array":{
+							"function":"method add argument array elementd to end of array to have method"
+						},
+						"value is other than array":"method add argument value to end of array to have method"
+					}
+				},
+				"Spred array":{
+					"Spred syntax":{
+						"function":"return spred elements",
+						"notation":"...array",
+						"spreded elements":"element, element",
+						"use":"defin array element, console.log()"
+					}
+				},
+				"Flattenning":{
+					"Flatten multidimensional array":{
+						"flat method":{
+							"function":"flatten multidimensional array to flat array, till specified dimention, and return flat array",
+							"notation":"array.flat(dimention)",
+							"example":{
+								"flatten array by one dimentional":{
+									"notation":"array.flat(1)",
+									"alternate notaion":"array.flat()",
+									"result":"[[[A], B], C] ⇒ [[A], B, C]"
+								},
+								"flatten array by all dimentional":{
+									"notation":"array.flat(Infinity)",
+									"result":"[[[A], B], C] ⇒ [A, B, C]"
+								}
+							}
+						}
+					}
+				},
+				"Delete specified element":{
+					"splice method":{
+						"function":"delete specified element and stuff element or add element",
+						"notation":"array.splice(index, element count, added elements)",
+						"example":{
+							"delete and stuff element":{
+								"notation":"array.splice(0, 2)"
+							},
+							"delete and add elements":{
+								"notation":"const array = [sister, brother]; array.splice(0, 1, papa, mama)",
+								"function":"delete element and add elements from delete element index",
+								"return element":"return [brother]"
+							}							
+						},
+						"return value":"return array contain only delete elements"
+					},
+					"length property":{
+						"handling":"count elements of array is length property",
+						"delete element":{
+							"notation":"array.length = count element",
+							"function":"cut off elements from specified index to be next of count elements"
+						}
+					}
+				},
+				"Assign empty element":{
+					"reassign":{
+						"example":"let array = [1, 2, 3]; array = []"
+					}
+				},
+				"Destructive method and Non-destructice method":{
+					"Destructive method":{
+						"pop method":{
+							"return value":"added value"
+						},
+						"push method":{
+							"return value":"value length after change"
+						},
+						"splice method":{
+							"return value":"array to contain delete elements"
+						},
+						"reverse method":{
+							"return value":"array that element order is reversed"
+						},
+						"other method":"shift, sort, unshift, copyWthin, fill"
+					},
+					"Non-destructive method":"concat, slice"
+				},
+				"Iterate method":{
+					"forEach method":{
+						"function":{
+							"argument":"callback function",
+							"Process":{
+								"assign dummy argument of callback function":"assin each element to dummy argument of callback functionone, one by one"
+							}
+						},
+						"notation":"array.forEach((dummy argument) => {statement;})"	
+					},
+					"Map method":{
+						"function":{
+							"argument":"callback function",
+							"return value":"new array",
+							"Process":{
+								"assign dummy argument of callback function":{
+									"1st dummy argument":"assign each element to dummy argument of callback functionone, one by one",
+									"2nd dummy argument":"assign index",
+									"3rd dummy argument":"assign array"
+								},
+								"callback function return value":{
+									"return value":"add return value to array",
+									"do not return":"do not add to array"
+								}
+							}
+						},
+						"notation":"array.map((currentValue, index, array) => {statement;})"	
+					},
+					"Filter method":{
+						"function":{
+							"argument":{
+								"assign dummy arument of map method":"callback function",
+								"return value":"new array",
+								"callback function return value":{
+									"return true":"add curentValue to array",
+									"return false":"do not add to array"
+								}
+							},
+							"Process":{
+								"assign dummy argument of callback function":{
+									"1st dummy argument":"assign each element to dummy argument of callback functionone, one by one",
+									"2nd dummy argument":"assign index",
+									"3rd dummy argument":"assign array"
+								}
+							}
+						},
+						"notation":"array.map((currentValue, index, array) => {statement;})"	
+					},
+					"reduce method":{
+						"function":{
+							"argument":{
+								"1st":"callback function",
+								"2nd":"initial acumulator"
+							},
+							"returned value":"number data type value that call back function return in last Iterate",
+							"Process":{
+								"assign dummy argument of callback function":{
+									"1st dummy argument":"assign initial acumulater, and next assign returned value of callback function",
+									"2st dummy argument":"assign each element to dummy argument of callback functionone, one by one",
+									"3nd dummy argument":"assign index",
+									"4rd dummy argument":"assign array"
+								}
+							}
+						},
+						"notation":"array.forEach((dummy argument) => {statement;})"	
+					}
+				},
+				"Method chain and Higher-order function":{
+					"Method cain":{
+						"function":"evaluate method from left to right",
+						"notation":"object.method.method.method",
+						"use higher-order function in method chain":{
+							"example":"const filteArray = array.filter(obj => obj.year<= 2000).map(obj => obj.name)"
 						}
 					}
 				}
