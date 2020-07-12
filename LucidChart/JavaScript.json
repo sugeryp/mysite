@@ -806,7 +806,8 @@
 								"const variable = argument => argument * 2;":{
 									"elipisis {} and return":"if function has only one formula, function do not need blocks and return, and return evaluation of formula"
 								}
-							}
+							},
+							"new operator":"TypeError: instance is not a constructor"
 						}
 					},
 					"with function name":{
@@ -816,11 +817,13 @@
 								}
 							}
 						}
-					}
+					},
+					"prototype object and constructor":"anonymas function have prototypeobject containing constructor"
 				},
 				"function declaration with same function name":{
 					"override":"function name is overrided with last function"
-				}
+				},
+				"prototype object and constructor":"function declaration make prototype object containing constructor automatically"
 			},
 			"call back function":{
 				"function":{
@@ -1000,7 +1003,7 @@
 		},
 		"object":{
 			"recognition":{
-				"object":"target to recognize as it is",
+				"object":"target to recognize as it is, or the object",
 				"propertie":"element object to have, and be able to name element"
 			},
 			"function":{
@@ -1199,9 +1202,7 @@
 			}
 		},
 		"Array":{
-			"recognition":{
-				"object has separate propaties":{}
-			},
+			"recognition":"objects",
 			"Create array and access":{
 				"Create array":{
 					"array literal":{
@@ -1503,6 +1504,663 @@
 							"example":"const filteArray = array.filter(obj => obj.year<= 2000).map(obj => obj.name)"
 						}
 					}
+				}
+			}
+		},
+		"String":{
+			"recognition":"express varval",
+			"create string data type value":{
+				"string literal":{
+					"notation":{
+						"double quote":"put string in double quote",
+						"single quote":"put string in single quote",
+						"back quote":{
+							"simple use":"put string in single quote",
+							"template literal":{
+								"multiple line":"be able to express linefeed by enter",
+								"place holder":{
+									"notation":"${express}",
+									"function":"evaluate express before literal return string"
+								}
+							}						
+						}
+					}
+				}
+			},
+			"escape sequence":{
+				"function":"express character to be usual specialy interpreted",
+				"notation":" start character with /",
+				"reference":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String"
+			},
+			"Bind strings":{
+				"use + operator":{
+					"notation":"String + String"
+				},
+				"use place holder":{
+					"notation":"`String${express}String`"
+				}
+			},
+			"Access to a part of String":{
+				"use index":{
+					"function":"concert to object and String Object return element",
+					"notation":"string[index]",
+					"undefined":"if element is not exist, return undefined"
+				}
+			},
+			"Bind and Split String":{
+				"split method":{
+					"function":"method split string by derimiter to character and return array to contain character",
+					"notation":"str.split(delimiter)",
+					"return value":"array",
+					"regular expression":" split method is able to assign regex to argument"
+				},
+				"join method":{
+					"function":"method join string elements of array with derimiter, and return string",
+					"notation":"array.join(delimiter)",
+					"return value":"string"
+				},
+				"replace delimiter":{
+					"notation":"str.split(delimiter).join(delimiter)"
+				}
+			},
+			"Length of string":{
+				"length property":{
+					"value":"conde unit count",
+					"notation":"string.length",
+					"String object":"string convert string to string object and string object return property value"
+				}
+			},
+			"compair string":{
+				"relational operator":{
+					"String object":"string is converted to String object",
+					"string equal operator (===)":{
+						"recognition":"strings is same",
+						"function":"compaire each code unit, and length propaerty value"
+					},
+					"other relational operator (>, <, >=, <=)":{
+						"function":"compaire last code unit to be element value"
+					}
+				}
+			},
+			"Get part of Stging":{
+				"slice method":{
+					"function":"slice and return string between arguments",
+					"notation":"str.slice(start index, end index)",
+					"argument":{
+						"start index <= end index":"return string between indexs",
+						"do not assign end index":"end index is last index and evaluate",
+						"start index is negative and end index is not assigned":{
+							"notation":"str.slice(negative number)",
+							"function":"start index is counted array element backwads"
+						},
+						"start index >= end index":"return empty string"
+					}
+				},
+				"substring method":{
+					"function":"slice and return string between arguments",
+					"notation":"str.substring(start index, end index)",
+					"argument":{
+						"start index <= end index":"return string between indexs",
+						"do not assign end index":"end index is last index and evaluate",
+						"start index is negative and end index is not assigned":{
+							"notation":"str.substring(negative number)",
+							"function":"start index is 0 and ebaluate"
+						},
+						"start index > end index":"reverse start index and last index"
+					}
+				},
+				"Find String":{
+					"indexOf method":{
+						"function":"surch string from front and return index of element that is first maching value",
+						"notation":"str.indexOf(string)",
+						"example":{
+							"express":"abcdefg.indexOf(bcd)",
+							"return value":"1"
+						},
+						"return value":{
+							"maching value is exist":"return top of index that is mathing elements",
+							"maching value is not exist":"return -1"
+						}
+					}
+				},
+				"Discriminate to be exist string":{
+					"startsWith method":{
+						"function":"if argument is exist lead of string, return true, elese return false",
+						"notation":"str.startsWith(string)"
+					},
+					"endsWith method":{
+						"function":"if argument is exist end of string, return true, elese return false",
+						"notation":"str.endsWith(string)"
+					},
+					"includes method":{
+						"function":"if argument is exist in string, return true, elese return false",
+						"notation":"str.includes(string)"
+					}
+				}
+			},
+			"Regular expression object":{
+				"recognition":"part of string properties",
+				"function":"object have matching method, and find strings that matches a pattern",
+				"Special character":"exprettion pattern of string with spechal character like + ^ ?",
+				"Create Regular esxpression object":{
+					"Regular expression literal":{
+						"notation":"/pattern/flag",
+						"evaluation timing":"whten JavaScript load sourcecord",
+						"function":"create regular expression object"
+					},
+					"RegExp Constructor":{
+						"notation":"RegExp(pattern string, flag string)",
+						"evaluation timing":"whten New syntax call RegExp",
+						"function":"create regular expression object"
+					}
+				},
+				"Find string by Regular expression":{
+					"Get index":{
+						"String#search method":{
+							"notation":"str.search(regular expression object)",
+							"function":"search matching pattern from string and return index of first maching pattern"
+						}
+					},
+					"Get matching string":{
+						"String#match method":{
+							"notation":"str.match(regular expression object)",
+							"function":{
+								"without g flag":{
+									"function":"search matching pattern from string and return value",
+									"return value":{
+										"match":"array whose element value is string that is first matching with pattern, and array has index and input propertys",
+										"never match":"null",
+										"index property":"lead index of first maching string in searched string",
+										"input propaerty":"searched string"
+									}
+								},
+								"with g flag":{
+									"function":"search matching pattern from string and return value",
+									"return value":{
+										"match":"array whose elements are all string that is matching with pattern",
+										"never match":"null"
+									}
+								}
+							}
+						},
+						"RegExp#exec":{
+							"notation":"RegExp.match(str)",
+							"function":{
+								"without g flag":{
+									"function":"search matching pattern from string and return value",
+									"return value":{
+										"match":"array whose element value is string that is first matching with pattern",
+										"never match":"null",
+										"index property":"lead index of first maching string in searched string",
+										"input propaerty":"searched string"
+									}
+								},
+								"with g flag":{
+									"function":"search matching pattern from string and return value, and next index of last index assign to lastindex property of RegExp object",
+									"return value":{
+										"match":"array whose element value is string that is first matching with pattern",
+										"never match":"null",
+										"index property":"lead index of first maching string in searched string",
+										"input propaerty":"searched string"
+									},
+									"lastindex property":"RegExp object have lastindex property and exec method start to search from lastindex property"
+								}
+							}
+						},
+						"Get part of maching string":{
+							"Capruring of RegExp object":{
+								"function":"caputure matching pattern in whole matching pattern",
+								"notation":"/part of pattern (part of pattern)/",
+								"String#match method":{
+									"return value":"[array to contain matching string, array to contain matching string with capture in whole maching string]"
+								},
+								"RegExp#exec method":{
+									"return value":"[array to contain matching string, array to contain matching string with capture in whole maching string]"
+								}
+							}
+						}
+					},
+					"Get Boolean value":{
+						"position of pattern in string":{
+							"notation":{
+								"lead":"^pattern",
+								"end":"pattern$"
+							}
+						},
+						"RegExp#test method":{
+							"notation":"RegExp.test(str)",
+							"function":"if matchin pattern is exist in string, return true, else return false"
+						}
+					},
+					"Replace and Delete of String":{
+						"replace method":{
+							"function":"method search mattching pattern in string and return string repalaced by replace string",
+							"notation":{
+								"with string":{
+									"notation":"str.replace(maching string, replace string)",
+									"return timing":"first match string and replace or do not match"
+								},
+								"with RegExp":{
+									"notation":"str.replace(RegExp, replace string)",
+									"RegExp":{
+										"without g flag":{
+											"return timing":"first match string and replace or do not match"
+										},
+										"with g flag":{
+											"return timing":"search till the end of strig"
+										}
+									}
+								},
+								"with callback function":{
+									"notation":"str.replace(maching string or RegExp, (all, ...capture) => {return replace string})",
+									"callback function argument":{
+										"all":"assign whole matching string",
+										"capture":"assign captured matching string"
+									}
+								}
+							},
+							"delete part of string":{
+								"notation":{
+									"with string":"str.replace(maching string, empty string)",
+									"with RegExp":"str.replace(RegExp, empty string)"
+								}
+							}
+						}
+					}
+				}
+			},
+			"Tagged Template function":{
+				"function":"call function and assign strings and evaluated values of replace holders",
+				"notation":"function`template`",
+				"argument":{
+					"strings":"tepmpate assign array that elements are each string devided by place holder to 1st dummy argument of function",
+					"place holder":"tepmpate assign array that elements are each evaluated palace holder values to 2nd dummy argument of function"
+				}
+			}
+		},
+		"String and Unicode":{
+			"Code Point":{
+				"definition":"character id in Unicode",
+				"String#codePointAt method":{
+					"function":"convert character that is position specified by index, to codepoint and return",
+					"notation":"str.codePointAt(index)"
+				},
+				"String.fromCodePoint method":{
+					"function":"convert codepoint that is argument, to character and return",
+					"notation":"String.fromCodePoint(codepoint)"
+				}
+			},
+			"Code Unit":{
+				"definition":"Code unit encode Code Point as 16bit Units",
+				"encoding":{
+					"method name":"UTF-16",
+					"single unit":"code point and code unit is sama value",
+					"double units":"surrogate pair encode code point ",
+					"surrogate pair":{
+						"function":"high surrogate and low surrogate that are next to each other is interpretated as surrogate pair",
+						"range of high surrogete":"D800~DBFF",
+						"range of low surrogete":"DC00~DFFF"
+					}
+				},
+				"count code unit":{
+					"String#.length property":{
+						"notation":"str.length"
+					}
+				},
+				"access to co code unit":{
+					"String Object":{
+						"notation":"str[index]"
+					}
+				}
+			},
+			"Access to Code Point":{
+				"Regular Expression Object":{
+					"with u flag":{
+						"notation":"/pattern/u",
+						"function":{
+							"Unit of Argument String":"Code Point"
+						}
+					}
+				},
+				"Iterable method":{
+					"function":{
+						"Unit of Argument String":"Code Point"
+					},
+					"Array.from method":{
+						"function":"split string to character and contain it to array return array"
+					},
+					"for...of statement":{
+						"function":"assign element to variable and execute statement, one by one till the end of element iterately"
+					}
+				}
+			}
+		},
+		"Rapper Object":{
+			"Primitive Data Type and Rapper Object":{
+				"convert primitive data type to rapper object":{
+					"automatically convert":"primitive data type is automatically converted when use rapper object method or property called"
+				},
+				"Boolean":{
+					"Boolean object":{
+						"constructor":{
+							"name":"Boolean",
+							"create object explicitly":"new Boolean(true or false)"
+						}
+					},
+					"lireral":"true or false"
+				},
+				"Number":{
+					"Number object":{
+						"constructor":{
+							"name":"Number",
+							"create object explicitly":"new Number(number)"
+						}
+					},
+					"lireral":"number"
+				},
+				"String":{
+					"String object":{
+						"constructor":{
+							"name":"String",
+							"create object explicitly":"new String(string)"
+						}
+					},
+					"lireral":"string"
+				},
+				"Synbol":{
+					"Synbol object":{
+						"constructor":{
+							"name":"Synbol",
+							"create object explicitly":"new Synbol(string)"
+						}
+					},
+					"lireral":"synbol data type do not have lireral"
+				}
+			}
+		},
+		"Function and Scope":{
+			"Scope":{
+				"definition":"reference range of variable name and function name and object name",
+				"Scope Chain":{
+					"function":{
+						"referenece the nearest variable or function from current scope to global scope":{
+							"first":"search variable or function name in current scope",
+							"second":"search variable or function name in next outer scope till global scope iterably"
+						}
+					}
+				},
+				"Block Scope":{
+					"definition":"scope that each block has"
+				},
+				"Global Scope":{
+					"definition":"outermost scope",
+					"property":"global scope is made first in Scope implicitly",
+					"Global variable":"variable that is defined in global scope",
+					"Builtin Object":"Object that is defined automaticaly before execute statements"
+				},
+				"Function Scope":{
+					"definition":"scope that each block has"
+				},
+				"roll back of variable declaration":{
+					"var":{
+						"function":"var syntax define variable at lead of function scope or global scope"					
+					},
+					"let, const":"do not rollback define"
+				},
+				"roll back of function declaration":{
+					"function":"function syntax define function name at lead of function scope or global scope"
+				}
+			},
+			"Static Scope":{
+				"funciton":{
+					"scope chain":"starting point of outer scope is position of declaine statement, not position of called statement"
+				}
+			},
+			"Memory management":{
+				"Gavage correction":{
+					"overview":"system to free memory automatically",
+					"rerease timing of memory":{
+						"reference of variable":{
+							"maintain reference":"do not rerease a target data",
+							"rerease reference":"rerease a target data"
+						}
+					}
+				}
+			},
+			"Closure":{
+				"function":"maintain variable value in function object",
+				"example":"let count = 0; function fn()=> return count++;  variable = fn()",
+				"logic that maintain variable value":{
+					"static scope":"reference in static scope",
+					"maintain reference":"variable maintain reference to the data of object to contain the data"
+				},
+				"maintain multistatement":{
+					"example":"function fn()=>{let count = 0; return innerFn()=>{return count++} }  variable = fn()",
+					"logic that maintain variable value":{
+						"static scope":"define variable in outer function scope"
+					}
+				}
+			}
+		},
+		"Function and this":{
+			"this value that is not in function":{
+				"Execution Context":{
+					"Script":{
+						"browser":"window object",
+						"node,js":"global object"
+					},
+					"Module":{
+						"all environment":"undefined"
+					}
+				}
+			},
+			"this value that is in function":{
+				"this value is base base object":{
+					"base object":{
+						"in call function statement":"one left of .method"
+					}
+				},
+				"other than Arrow Function":{
+					"Function declaration":{
+						"call function as method":"this is base object",
+						"call function not as method":"this is undefined"
+					},
+					"Function expression":{
+						"call function as method":"this is base object",
+						"call function not as method":"this is undefined"
+					},
+					"the case that this is undefined":{
+						"assingn method to variable":"call function not as method"
+					},
+					"the case that this is other object":{
+						"assign method to other object property":"base object is other object"
+					},
+					"assign value to this and call function":{
+						"Function#call method":{
+							"function":"call function and assign value to this and argument",
+							"notation":"function.call(this value, argument, ...argument)",
+							"not define this":{
+								"notation":"function.call(null, argument, ...argument)"
+							}
+						},
+						"Function#apply method":{
+							"function":"call function and assign value to this and argument",
+							"notation":"function.apply(this value, [argument, ...argument])",
+							"not define this":{
+								"notation":"function.apply(null, [argument, ...argument])"
+							}
+						}
+					},
+					"assign value to this and return new functon":{
+						"Function#bind method":{
+							"function":"assign value to this and argument and return new function",
+							"notation":"function.bind(this value, argument, ...argument)",
+							"not define this":{
+								"notation":"function.call(null, argument, ...argument)"
+							}
+						}
+					},
+					"call back function":{
+						"higher-order function":"call back function called by higher-order function as function",
+						"this value in call back function":"undefined",
+						"how to deal":{
+							"use this in directly under method":"assign this value to variable",
+							"use function#method":"call, apply, bind method",
+							"use other function":"Array#map method have function to assign 2nd argument to this",
+							"use Arrow Function":"Arrow Function do not have this and use outer function's this"
+						}
+					}
+				},
+				"Arrow Function":{
+					"this is not defined":"this is not defined in Arrow Function",
+					"Static Scope and Scope Chain":"this search outer function by scope chain",
+					"outer function":{
+						"call function as method":"this is base object",
+						"call function not as method":"this is undefined"
+					},
+					"call allow function with call,apply,bind method":"ignore this value"
+				}
+			},
+			"reference global object":{
+				"notation":"globalThis"
+			}
+		},
+		"Class":{
+			"recognition":"a object",
+			"Data type":"Function Object, typeof function",
+			"define class":{
+				"notation":"class class name {statement}"
+			},
+			"instance":{
+				"create instance object":{
+
+				},
+				"instance object":{
+					"inner property":{
+						"use":"instance object call instance method that is searched and finded in properties include inner property automatically",
+						"access":{
+							"do not be able to access directly":"do not acccess inner property as other property directory",
+							"Object.getPrototypeOf":"reference prototype property of instance object"
+						},
+						"new operator":"TypeError: instance is not a constructor",
+						"prototype":{
+							"value":"reference to instance object of class"
+						}
+					}
+				}
+
+			},
+			"Class object":{
+				"Prototype Object of Class":{
+					"function to have function object":"function object have prototype property automaticaly",
+					"contain":"constructor method, protptype method",
+					"property":{
+						"do not notate properties as usual object property":{
+							"add property":{
+								"notate in constructor":"classobject.propertyname = value",
+								"notation of class object in itself":{
+									"use this":"this.propertyname = value"
+								}
+							}
+						}
+					},
+					"prototype method":{
+						"Prototype object":"define prototype method in prototype object directory",
+						"call from class but that is unusual use case":"classname.prototype.method()"
+					},
+					"ptrototype chain":{
+						"object that has inner property prototype, serach method":{
+							"find":"execute method",
+							"not find":{
+								"instance object seach inner property itself":{
+									"inner property":{
+										"prototype":{
+											"value":"reference prototype object of class"
+										}
+									}
+								},
+								"find":"instance object execute prototype method that is in prototype object of class"
+							}
+						},
+						"object that has inner property prototype":"instance object, child class object"
+					}
+				},
+				"Constructor method":{
+					"function":"new operator create instance object and execute constructor method ",
+					"defining position":"Prototype Object",
+					"ellipsis of constructor":"create constructor in prototype object automatically",
+					"notation":"constructor(argument, ...argument) {statement}",
+					"add property to instance object":"this.property name = value",
+					"add method to instance object":{
+						"use arrow function":"this.property name = (argument, ...argument) => {}",
+						"use function declaration":"this.property name = function (argument, ...argument) {}"
+					}
+				},
+				"Prototype method defined in class object":{
+					"defining position":{
+						"Prototype Object that is Prototype property of Class object that is function object":{
+							"Class Object":{
+								"prototype":"Prototype Object"
+							},
+							"Function Object(but not arrow function)":{
+								"prototype":"Prototype Object"
+							}
+						}
+					},
+					"notation":"functionname(argument, ...argument) {statement}, do not need arrow function or function declaration"
+				},
+				"method defined in instance object":{
+					"defining position":{
+						"Instance Object":{
+							"method name":"function"
+						}
+					}
+
+				},
+				"Accessor property":{
+					"function":"access to inner property by method like usual property",
+					"getter":{
+						"notation":"get property name() {return inner property value;}"
+					},
+					"setter":{
+						"notation":"set property name(argument) {inner property = argument}"
+					},
+					"call value from accessor property":"instanse.property name",
+					"add value to accessor property":"instanse.property name = value"
+				},
+				"Static method":{
+					"notation":"static functionname(){statement}",
+					"function":"define reference to static method in class object directory",
+					"Prototype object":"define static method in prototype.constructor property",
+					"call":"classname.method()",
+					"alternate call":"classname.prototype.constructor.method()"
+				},
+				"extend":{
+					"function":"inherit other class",
+					"notation":"class childclass extends parenclass {childclass statement}",
+					"prototype chain":{
+						"child class have ptototype as inner property in addition to prototype object itself":{
+							"inner property":{
+								"prototype":"reference to prototype object of pairentclass"
+							}
+						}
+					},
+					"super":{
+						"elipsis of constructor in child class":"create constructor object and vreate super(argument, ...arguments ) in constructor",
+						"call constructor of pairent":{
+							"notation":"super(argument, ...arguments)"
+						},
+						"reference prototype method of pairent class":{
+							"notation":"super.prototype method"
+						}
+					},
+					"discrimination to extend":{
+						"instanceof operator":{
+							"function":"if left instance object is that extended right class, operator return true",
+							"notation":"instance object instanceof object"
+						}
+					},
+					"Builtin object":"extend keyword is able to inherit builtin object"
 				}
 			}
 		}
