@@ -3,7 +3,7 @@
 	"common":{
 		"ECMASrript":{
 			"distinguish between upper and lowercase letters":{},
-			"habe reserved word":{},
+			"have reserved word":{},
 			"separate sentence by semicoron":{},
 			"strict mode":{},
 			"execute context":{
@@ -2162,6 +2162,87 @@
 					},
 					"Builtin object":"extend keyword is able to inherit builtin object"
 				}
+			}
+		},
+		"Exception handling":{
+			"try ...catch syntax":{
+				"notation":"try{statements} catch(argument){statements} finally{statements}",
+				"try section":{
+					"exception targeting":{
+						"function":"execute statents, if exception occur, break try section, execute catch section, and or finally section"
+					}
+				},
+				"catch section":{
+					"dealing with Exception":{
+						"function":"syntax assign error object to catch section argument and execute statements"
+					}
+				},
+				"finally section":"syntax execute finally section statements finally, after try and catch section",
+				"ellipsis catch or finally":"be able to elipsis either catch section or finally section"
+			},
+			"throw statement":{
+				"function":"break try section and, assign object to chach section argument and execute catch section statements",
+				"notation":"throw object",
+				"use":"try{throw new Error(error)} catch(er){console.log(er.message)}}"
+			},
+			"Error object":{
+				"Error constructor":{
+					"argument":"string",
+					"function":"assign argument value to message property"
+				},
+				"property":{
+					"message":"error message",
+					"name":"error object name"
+				},
+				"stack trace":{
+					"function":"contain position of error accured, and position of caller",
+					"call":"console.error(Error object)"
+				},
+				"Builtin Error":{
+					"extend":"Builtin Error extends Error object",
+					"Reference Error":"reference undefined value",
+					"Syntax Error":"Incorect Syntax, so context is not able to read Syntax, before execute",
+					"Type Error":"Data type is not except Data type"
+				}
+			}
+		},
+		"Asynchronous process":{
+			"Synchironous processing":{
+				"function":"Sequential processing"
+			},
+			"Asynchronous process":{
+				"setTimeout function":{
+					"notation":"setTimeout(callback, delay)",
+					"function":"call callback function delay milliseconds later"
+				}
+			},
+			"Thread":{
+				"default":{
+					"execute thread":"mail thread",
+					"Synchironous processing":"execute multi process sequentialy",
+					"Asynchronous process":"execute multi process concurently"
+				},
+				"concurent":"execute multi process while swiching in one thread",
+				"execute":"execute multi process in multi thread"
+			},
+			"Asynchronous process Exception in Try ...Catch syntax":{
+				"Try ...catch syntax":{
+					"Asynchronous function in Try block":{
+						"result":"do not catch exeption",
+						"reason":"finish to execute Try ... catch syntax, evaluate Asynchronous funcrion"
+					}
+				}
+			},
+			"Error first callback rule":{
+				"notation":"function(argument, argument, (error, data) => {statements})",
+				"function":{
+					"reject":"assign null to 1st argument of of callback function, and call callbackfunction",
+					"resolve":"assign null to 1st argument of of callback function, and assign data to 2nd argument of callback function and call callbackfunction",
+					"example":"const file fs.readFile(path, (error, data)=> if(error){console.error(error)}else{console.log(data)} )"
+				}
+			},
+			"Promise":{
+				"notation":"new Promise(callback function)"
 			}
 		}
 	}
