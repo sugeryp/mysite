@@ -1,0 +1,14 @@
+// `timeoutMs`ミリ秒後にresolveする
+function delay(timeoutMs) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(timeoutMs);
+        }, timeoutMs);
+    });
+}
+const promise1 = delay(1);
+const promise2 = delay(2);
+
+Promise.all([promise1, promise2]).then(function(values) {
+    console.log(values); // => [1, 2, 3]
+},function(err){console.error(err);});

@@ -2207,6 +2207,7 @@
 			}
 		},
 		"Asynchronous process":{
+			"Recognition":"a process that is differ in time stream from another process",
 			"Synchironous processing":{
 				"function":"Sequential processing"
 			},
@@ -2242,7 +2243,352 @@
 				}
 			},
 			"Promise":{
-				"notation":"new Promise(callback function)"
+				"create Promise instance":{
+					"notation":"new Promise(callback function)",
+					"status":"Pending"
+				},
+				"Promise prototype method":{
+					"constructor":{
+						"execute callback function":{
+							"throw exception":"define expression that call 2nd argumen function in then method, with to assign exception to call back function argument of then method 2nd argument function, then(resolve, reject){resolve(argument of constructor argument function, and catch method)",
+							"not throw exeption":{
+								"call first argument function primality":"define expression that call 1st argumen function in then method, with to assign argument value to call back function argument of then method 1st argument function, then(resolve, reject){resolve(argument of constructor argument function)}",
+								"call secound argument function primality":"define expression that call 2nd argumen function in then method, with to assign argument value to call back function argument of then method 2nd argument function, then(resolve, reject){resolve(argument of constructor argument function, and catch method)}"
+							}
+						}
+					},
+					"resolve":{
+						"noation":"Promise.resolve(value)",
+						"function":"create fullfilled Promise instanse that set value to then method callback function argument"
+					},
+					"reject":{
+						"noation":"Promise.reject(value)",
+						"function":"create rejected Promise instanse that set value to then and catch method callback function argument"
+					},
+					"all":{
+						"notation":"Promise.all([promise, promise, promise])",
+						"arguments":"Array of promise instaces",
+						"function":"create promise instance that in then method define expression 2nd callback function of argumen with callback argument that is array of each instanse argument that is array of callback function argument",
+						"return value":{
+							"Promise instance":{
+								"throw exception or to define called 2nd callbackfunction in then method primallity or define callback in catch method even one of element":{
+									"then and catch with throwed exception or reject ":"define expression that call 2nd argumen function in then method, with to assign exception to call back function argument of then method 2nd argument function, then(resolve, reject){resolve(argument of constructor argument function, and catch method)"
+								},
+								"not throw exeption":{
+									"all Promise instance define in then method 1st callbackfunction":{
+										"then with array of callbackfunction returned value":"define expression that call 1st argumen function in then method, with to assign array of elements returned value to call back function argument of then method 1st argument function, then(resolve, reject){resolve([returned value, returned value...])}"
+									},
+									"even one of promise instanse has no callback function":{
+										"do not define callback":"do not define then 1st, 2nd callback and catch callback"
+									}
+								}
+							}
+						},
+						"use with Destructuring assign":"Promise#.all([pro1, pro2, pro3]).then([val1, val2, val3] => {console.log(val1, val2, val3)})"
+					},
+					"race":{
+						"notation":"Promise.race([promise, promise, promise])",
+						"arguments":"Array of promise instaces",
+						"function":"create promise instance that is a promise instance created at first in array",
+						"return value":"Promise instance that is a promise instance whose create time is the shortest in array"
+					}		
+				},
+				"Promise instance method":{
+					"then":{
+						"Promise#.then(resolve, reject)":{
+							"function":"execute callback function",
+							"return value":{
+								"other than Promise instance":{
+									"Promise instance":{
+										"throw exception":{
+											"then method of instance":"(resolve, reject) => reject(exception)",
+											"catch method of instance":"(reject) => reject(exception)"
+										},
+										"not throw exception":{
+											"then method of instance":"(resolve, reject) => resolve(return value of then callback)"
+										}
+									}
+								},
+								"Promise instance":"Promise instance"
+							}
+						},
+						"argument is resove only":"Promise#.then(resolve)",
+						"argument is reject only":"Promise#.then(undefined, reject)"
+					},
+					"catch":{
+						"Promise#.catch(reject)":{
+							"function":"execute callback function",
+							"return value":{
+								"other than Promise instance":{
+									"Promise instance":{
+										"then method of instance":"(resolve, reject) => resolve(return value of then callback)"
+									}
+								},
+								"Promise instance":"Promise instance"
+							}
+						}
+					},
+					"finally":{
+						"Promise#.finally(callback)":{
+							"function":"call callback function",
+							"return value":{
+								"Promise instance":{
+									"throw exception":{
+										"then method of instance":"(resolve, reject) => reject(exception)",
+										"catch method of instance":"(reject) => reject(exception)"
+									},
+									"not throw exception":{
+										"then method of instance":"return call Promise instanse"
+									}
+								}
+							}			
+						}
+					}
+				},
+				"Status":{
+					"concept":"virtual status to understand promise chain instinctively",
+					"then or catch method":"instance ignore pass method and, execute the nearest execute method",
+					"Fullfilled":{
+						"execute method":{
+							"then":"call resolve at once",
+							"finally":"call callback function, do not create Promise instance"
+						},
+						"pass method":{
+							"then":"call reject",
+							"catch":"call reject"
+						},
+						"Create FullFilled or Change to Fullfilled":{
+							"Create":{
+								"instance method":{
+									"then method":"Promise#.then(resolve or undefined, reject) ,call resolve or reject and without to throw ecxeption",
+									"catch method":"Promise#.catch(reject) ,call resolve and without to throw ecxeption",
+									"resolve argument":"returned value of resolve or reject"
+								},
+								"constructor method":{
+									"resolve method":"Promise.resolve(value)",
+									"resolve argument":"resolve method argument value"
+								}
+							}
+						},
+						"Change from":{
+							"Pending ⇒　Fullfilled":"execute then resolve callback function"
+						},
+						"Change to":"do not change"
+					},
+					"Rejected":{
+						"execute method":{
+							"then":"call reject at once",
+							"catch":"call reject at once",
+							"finally":"call callback function, do not create Promise instance"
+						},
+						"pass method":{
+							"then":"call resolve"
+						},
+						"Create FullFilled or Change to Fullfilled":{
+							"Create":{
+								"instance method":{
+									"then method":"Promise#.then(resolve or undefined, reject), with to throw exception",
+									"reject argument":"throwed exeption"
+								},
+								"constructor method":{
+									"reject method":"Promise.reject(value)",
+									"reject argument":"reject method argument value"
+								}
+							}
+						},
+						"Change from":{
+							"Pending ⇒　Rejected":"execute then reject callback function, or catch reject callback function"
+						},
+						"Change to":"do not change"
+					},
+					"Pending":{
+						"execute method":{
+							"then":"call resolve or reject at once or nothing, if execute nothing pass this method",
+							"catch":"call reject at once or nothing, if execute nothing pass this method",
+							"finally":"call callback function, do not create Promise instance"
+						},
+						"Create FullFilled or Change to Fullfilled":{
+							"constructor":{
+								"Promise":"new Promise(callback)",
+								"callback":"call resolve or reject or throw exception or nothing",
+								"resolve argument":"any value",
+								"reject argument":"any value or exception"
+							},
+							"Change from":"do not change",
+							"Change to":{
+								"Pending ⇒　Rejected":"execute then reject callback function, or catch reject callback function",
+								"Pending ⇒　Fullfilled":"execute then resolve callback function"
+							}
+						}
+					}
+				}
+			},
+			"Async function":{
+				"Create async function":{
+					"function declaration":"async function fn1() {}",
+					"function expression":"const fn2 = async function() {}",
+					"arrow function":"const fn3 = async() => {}",
+					"method":"const obj = { async method() {} }"
+				},
+				"function":{
+					"same as function":"async function has functions that have function",
+					"return value is promise instance":"return value is wrapped promise instanse, return Promise.resolve(return value) or Promise.reject(expression), if return value is Promise instance, return the Promise instance",
+					"await":"async function is able to use await expression in async function limitedly"
+				},
+				"return value is Promise instance":{
+					"Promise instance":{
+						"throw exception":{
+							"then and catch with throwed exception":"define expression that call 2nd argumen function in then method, with to assign exception to call back function argument of then method 2nd argument function, then(resolve, reject){resolve(argument of constructor argument function, and catch method)"
+						},
+						"not throw exeption":{
+							"return value other than Promise instanse in async functon ":"async function return Promise.resolve(returned vlue), return nothing in async function, asyncfunction return Promise.resolve()",
+							"return Promise instanse in async function ":"return the Promise instance"
+						}
+					}
+				},
+				"await expression":{
+					"recognition":"execute asynchronous process in same time stream",
+					"notation":"",
+					"function":"wait till to set resolve or reject on then or catch method at first in Promise instance in asyncronous function",
+					"return value":{
+						"throw exeption":"exception",
+						"do not throw exception":{
+							"defined resolve primaly":"resolve argument",
+							"defined reject primaly":"reject argument",
+							"do not be defined any resolve or reject":"exit asyncronous function that is the nearest outer, before return value"
+						}
+					}
+				},
+				"async function with loop":{
+					"with for loop":"const array = [], async functon fn(for(let i = 0, i < 5, i++)){const val = await async function(); array.push(val)}"
+				},
+				"async function with Promice prototype method":{
+					"with all":"const array = [], const resources = [1,2,3,4,5] const promises = resouces.map((val) => Promise.resolve(val)); async functon fn(const val = await Promise.all(promises)}"
+				}
+			}
+		},
+		"JSON":{
+			"JSON object":"Builtin object that have method to operate JSON",
+			"from JSON to JavaScript":{
+				"parse method":{
+					"notation":"JSON.parse('string') ,do not use double quote, double quote is used in string so, string do not be treated one string",
+					"return value(datatype in json⇒in javascript)":{
+						"do not throw exception":{
+							"object":"object",
+							"array":"array",
+							"property":{
+								"property name":"string",
+								"propaerty value and array element":{
+									"string":"string",
+									"number":"number",
+									"object":"object",
+									"array":"array",
+									"null":"null",
+									"undefined":"error"
+								}
+							}
+						},
+						"throw exception":"throw exception and do not return anything"
+					},
+					"use":"try{JSON.parse(json)} catch(err){console.error(err)}"
+				}
+			},
+			"from JavaScript to JSON":{
+				"stringify method":{
+					"notation":"JSON.stringify(obj)",
+					"return value(datatype in javascript⇒in json)":{
+						"do not throw exception":{
+							"data type in javescript":"string",
+							"object":"object",
+							"array":"array",
+							"string":"string",
+							"property":{
+								"propaerty value and array element":{
+									"string":"string",
+									"number":"number",
+									"object":"object",
+									"array":"array",
+									"null":"null",
+									"RegExp":"{}",
+									"Map, Set":"{}",
+									"Synbol":"do not create property",
+									"function":"do not create property",
+									"undefined":"do not create property"	
+								},
+								"property name":{
+									"string":"string",
+									"Synbol":"do not create property"
+								}
+							}			
+						},
+						"throw exception":"throw exception and do not return anything"
+					},
+					"use second argument":{
+						"function":"reprace property value with return value of callback function",
+						"notation":"const replacer = (key, value) => {statementd; return property value}; JSON.stringify(obj, replacer)",
+						"if property value is null, ignore the property":"const replacer = (key, value) => {if (value === null) {return undefined;}return value;};console.log(JSON.stringify(obj, replacer));"
+					},
+					"use third argument":{
+						"function":{
+							"number":"indent properties by space, space amount is the argument number",
+							"string":"indent properties by the string",
+							"notation":"console.log(JSON.stringify(obj, null, number or string);",
+							"indent by tab":"JSON.stringify(obj, null, backslash t)"
+						}
+					},
+					"toJSON method in object":{
+						"function":"stringify return toJSON method return value",
+						"notation":"obj = {properties ,toJSON() {return value;}",
+						"stringify return value":"toJSON method return value"					
+					}
+				}
+			}
+		},
+		"ECMAScript module":{
+			"Purpose":{
+				"Maintenanbility":"Centralized management of common process and single functionalization",
+				"name space":"each modules have independence space",
+				"Reusability":"reuse frequency processings"
+			},
+			"Export with name":{
+				"export":"export {variable or function name};",
+				"export multi variables or functions":"export {var, var, fn};",
+				"declain and export":"export function fn() { };",
+				"export with alias name":"export { var as alias};"
+				
+			},
+			"Import with name":{
+				"import":"import { export variable or function name } from module file name;",
+				"import var of fn that export with alias":"import {alias} from module;",
+				"import with alias":"import { var as alias } from module;"
+			},
+			"default export":{
+				"export":"export default var;",
+				"alternate default export":"export {var as default};",
+				"declain and export":"export default function fn() { };, variable is not able to declain in export syntax"
+			},
+			"default import":{
+				"import":"import alias from module;",
+				"alternate default import":"import {default as alias} from module",
+				"import default with orther export function or variable":"import alias, { fn } from module"
+			},
+			"reexport":{
+				"reexport all module":"export * from module;",
+				"reexport all module with alias":"export * as myNameSpace from module;",
+				"reexport selected function":"export { foo, bar } from module;",
+				"reexport selected function with alias":"export { foo as myModuleFoo, bar as myModuleBar } from modeule;",
+				"reexport default export as default":"export { default } from module;",
+				"reexport default export with name":"export { default as myModuleDefault } from module;",
+				"reexport selected function as default":"export { foo as default } from module;"
+			},
+			"import all functions or variables":{
+				"import all":"import * as myModule from module"
+			},
+			"import module that operate builtin object or global variable":{
+				"window.foo = foo;":"import ./side-effects.js;"
+			},
+			"execute module":{
+				"html":"<script type=module src=./my-module.js></script>"
 			}
 		}
 	}

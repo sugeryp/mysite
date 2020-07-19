@@ -10,7 +10,8 @@ function dummyFetch(path) {
                 resolve({ body: `Response body of ${path}` });
             } else {
                 reject(new Error("NOT FOUND"));
-            }
+            };
+            throw new Error("NOT FOUND2");
         }, 1000 * Math.random());
     });
 }
@@ -18,7 +19,11 @@ function dummyFetch(path) {
 // /success/data のリソースは存在するので成功しonFulfilledが呼ばれる
 
 console.log("before");
-dummyFetch("/success/data").then(function onFulfilled(response) {
+const fn = dummyFetch("/success/data").then(undefined, function onRejected(error) {
+    // この行は実行されません
+});
+
+fn.then(function onFulfilled(response) {
     console.log(response); // => { body: "Response body of /success/data" }
 }, function onRejected(error) {
     // この行は実行されません
