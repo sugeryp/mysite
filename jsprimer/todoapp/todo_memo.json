@@ -1,0 +1,94 @@
+{
+    "Map":{
+        "create":"const map = new Map();",
+        "use constructor":"const map = new Map([['key1', 'value1'], ['key2', 'value2']])",
+        "method":{
+            "add element":"map.set('key', 'value')",
+            "get count of elements":"map.size",
+            "get value":"map.get('key')",
+            "overwride value":"map.set('resistered key', 'new value')",
+            "confirm exit of key":"map.has('key')"
+        }
+    },
+    "Function and this":{
+        "this value that is not in function":{
+            "Execution Context":{
+                "Script":{
+                    "browser":"window object",
+                    "node,js":"global object"
+                },
+                "Module":{
+                    "all environment":"undefined"
+                }
+            }
+        },
+        "this value that is in function":{
+            "this value is base object":{
+                "base object":{
+                    "in call function statement":"one left of .method"
+                }
+            },
+            "other than Arrow Function":{
+                "Function declaration":{
+                    "call function as method":"this is base object",
+                    "call function not as method":"this is undefined"
+                },
+                "Function expression":{
+                    "call function as method":"this is base object",
+                    "call function not as method":"this is undefined"
+                },
+                "the case that this is undefined":{
+                    "assingn method to variable":"call function not as method"
+                },
+                "the case that this is other object":{
+                    "assign method to other object property":"base object is other object"
+                },
+                "assign value to this and call function":{
+                    "Function#call method":{
+                        "function":"call function and assign value to this and argument",
+                        "notation":"function.call(this value, argument, ...argument)",
+                        "not define this":{
+                            "notation":"function.call(null, argument, ...argument)"
+                        }
+                    },
+                    "Function#apply method":{
+                        "function":"call function and assign value to this and argument",
+                        "notation":"function.apply(this value, [argument, ...argument])",
+                        "not define this":{
+                            "notation":"function.apply(null, [argument, ...argument])"
+                        }
+                    }
+                },
+                "assign value to this and return new functon":{
+                    "Function#bind method":{
+                        "function":"assign value to this and argument and return new function",
+                        "notation":"function.bind(this value, argument, ...argument)",
+                        "not define this":{
+                            "notation":"function.call(null, argument, ...argument)"
+                        }
+                    }
+                },
+                "call back function":{
+                    "higher-order function":"call back function called by higher-order function as function",
+                    "this value in call back function":"undefined",
+                    "how to deal":{
+                        "use function#method":"call, apply, bind method",
+                        "use Arrow Function":"class setOrMap {setOrMapInstance.forEach(listener => {listener.call(this);});}"
+                    }
+                }
+            },
+            "Arrow Function":{
+                "this is not defined":"this is not defined in Arrow Function",
+                "Static Scope and Scope Chain":"this search outer function by scope chain",
+                "Arrow function this is outer scope this":"global this or outer function this",
+                "outer function this":{
+                    "call function as method":"this is base object",
+                    "call function not as method":"this is undefined"
+                }
+            }
+        },
+        "reference global object":{
+            "notation":"globalThis"
+        }
+    }
+}

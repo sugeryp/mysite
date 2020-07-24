@@ -1,0 +1,3 @@
+encodeURIComponent();
+replace resarved characters in URI to percent encoding characters
+https://www.asahi-net.or.jp/~ax2s-kmtn/ref/uric.html

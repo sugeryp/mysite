@@ -1,0 +1,21 @@
+{"AjaxApp":{
+    "GitHubUserIDGet":{
+        "input from HuIF":{
+            "GitHubUserID":{}
+        }
+    },
+    "GitHubUserGet":{
+        "GitHubUserID":{},
+        "GitHubURL":{},
+        "GetFromGitHub":{
+            "GitHubUser":{}
+        }
+    },
+    "DisplayGitHubUser":{
+        "output to Display":{
+            "GitHubUser":{}
+        }
+    }
+}
+
+}

@@ -1493,7 +1493,7 @@
 								}
 							}
 						},
-						"notation":"array.forEach((dummy argument) => {statement;})"	
+						"notation":"array.reduce((dummy argument) => {statement;})"	
 					}
 				},
 				"Method chain and Higher-order function":{
@@ -2591,5 +2591,22 @@
 				"html":"<script type=module src=./my-module.js></script>"
 			}
 		}
+	},
+	"Nodejs":{
+		"CommonJS":{
+			"function":"export and import module",
+			"export":{
+				"default export":"module.exports = function greet(name) {return `Hello ${name}!`;};",
+				"export as property":"module.exports.foo = function() {console.log('foof');};module.exports.bar = function() {console.log('barb');};"
+			},
+			"import":{
+				"default import":"const greet = require('./greet');greet('World');",
+				"import and use as property":"const functions = require('./functions');functions.foo();functions.bar();"
+			}
+		}
+	},
+	"from Model Change to Disolay Change":{
+		"browser":"DOM API",
+		"node.js":"events"
 	}
 }}
