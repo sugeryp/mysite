@@ -17,5 +17,5 @@ todoListModel.addTodo(new TodoItemModel({
 // Todoリストにアイテムが増える
 console.log(todoListModel.getTotalCount()); // => 1
 
-//Todoリストのアイテムをコンソール出力する。
-console.log(todoListModel.getTodoItems());
+//Todoリストのアイテムタイトルをコンソール出力する。
+console.log(todoListModel.getTodoItems()[0].title); // => 新しいTodoアイテム

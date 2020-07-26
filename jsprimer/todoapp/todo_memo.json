@@ -90,5 +90,86 @@
         "reference global object":{
             "notation":"globalThis"
         }
+    },
+    "Ternary operator":{
+        "function":{
+            "Ecaluation result of conditional is true":"operator return evaluation result of left formula",
+            "Ecaluation result of conditional is false":"operator return evaluation result of right formula"
+        },
+        "notation":"variable = conditional formula operand ? left formula operand : right formula operand",
+        "use":{
+            "change Initial value of variable by condition":{
+                "alter notation":{
+                    "if statement":{
+                        "notation":"let variable; if(conditional formula) {variable = left formula}, else {variable = right formula}"
+                    }
+                }
+            }
+        }
+    },
+    "Get element":{
+        "find method":{
+            "function":"method assign each element to callback function one by one , if callback function return true, method return element, else return -1",
+            "notation":"array.find(call backfunction)",
+            "example":"variable = array.find((obj) => {return express}) console.log(variable)"
+        }
+    },
+    "Filter method":{
+        "function":{
+            "argument":{
+                "assign dummy arument of map method":"callback function",
+                "return value":"new array",
+                "callback function return value":{
+                    "return true":"add curentValue to array",
+                    "return false":"do not add to array"
+                }
+            },
+            "Process":{
+                "assign dummy argument of callback function":{
+                    "1st dummy argument":"assign each element to dummy argument of callback functionone, one by one",
+                    "2nd dummy argument":"assign index",
+                    "3rd dummy argument":"assign array"
+                }
+            }
+        },
+        "notation":"array.filter((currentValue, index, array) => {statement;})"	
+    },
+    "strict inequal conparison operator":{
+        "function":{
+            "Number data type":"operator compaires two operands and if operands are different data type or different value, return true",
+            "String data type":"operator compaires two operands and if operands are different data type or different value, return true",
+            "Object data type":"operator compaires two operands and if operands not referent same data on memory, return true",
+            "Array data type":"operator compaires two operands and if operands not referent same data on memory, return true",
+            "Operands is Null data type":"return false",
+            "Operands is Undefined":"return false",
+            "Null and Undefined":"operator return true",
+            "defference data type":"operator return true"
+        },
+        "notation":"operand !== operand"
+    },
+    "NOT operator":{
+        "function":{
+            "Boolean data type":{
+                "operand is true":"operator return false",
+                "operand is false":"operator return true"
+            },
+            "Number data type":{
+                "operand is 0":"operator return true",
+                "operand is not 0":"operator return false"
+            },
+            "String data type":{
+                "operand is empty":"operator return true",
+                "operand is not empty":"operator return false"
+            }
+        },
+        "use":{
+            "convert to boolean data type":{
+                "how to use":"!! operand",
+                "alter notation":{
+                    "example":"const str = jj , !!str ⇒　str.length > 0"
+                }
+            }
+        },
+        "notation":"!operand"
     }
 }

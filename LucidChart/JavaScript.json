@@ -1475,7 +1475,7 @@
 								}
 							}
 						},
-						"notation":"array.map((currentValue, index, array) => {statement;})"	
+						"notation":"array.filter((currentValue, index, array) => {statement;})"	
 					},
 					"reduce method":{
 						"function":{
