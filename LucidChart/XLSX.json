@@ -1,0 +1,15 @@
+{"XLSX":{
+    "recognition":"excel_file convert to JS_object, and operate JS_object made from excel_file, and JS_object convert to excel_file",
+    "function":{
+        "read":"",
+        "operate":"",
+        "write":""
+    },
+    "install":"npm install xlsx",
+    "JS_object made from excelfile":{
+        "name":"",
+        "properties":{
+
+        }
+    }
+}}
