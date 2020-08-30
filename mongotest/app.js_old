@@ -1,0 +1,29 @@
+/**
+ * Module dependencies
+ */
+
+const express = require("express");
+const routes = require("./routes");
+const user = require("./routes/user")
+const mongoInsert = require("./routes/mongo/insert");
+const mongoFind = require("./routes/mongo/find");
+const mongoUpdate = require("./routes/mongo/update");
+const mongoDelete = require("./routes/mongo/delete");
+const http = require("http");
+const path = require("path");
+
+const app = express();
+
+//all environment
+
+app.set("port", process.env.PORT || 3000);
+app.set("views", __dirname)
+app.set("view engine", "jade");
+app.use(express.favicon());
+app.use(express.logger("dev"));
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use("app.router");
+app.use(express.static(path.join(__dirname, "public")));
+
+//de
