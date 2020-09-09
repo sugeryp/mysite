@@ -1,4 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
 
 // MongoDB Listener URL
 const url = 'mongodb://localhost:27017';
@@ -7,21 +8,34 @@ const url = 'mongodb://localhost:27017';
 
 const insertOne = function(req, res){
 
-    //MongoDBの接続
+    //connect to MongoDB
     MongoClient.connect(url, function(err, client) {
 
-        //DBの指定(testdb)
+        //check to connect db
+        assert.equal(null, err);
+        console.log("MongoDB Connect");
+
+        //destination of DB
         const db = client.db('puppet_test');
 
-        //登録用ドキュメント
-        var document = {name: "comera", price: 30000 , URL: "https://www.lll.jp"};
+        //inserted test document
+        var document = {name: "camera", price: 30000 , URL: "https://www.lll.jp"};
 
-        //insertOneの実行
+        //execute insertOne
         db.collection('test1').insertOne(
-            document
+            document,
+            function(err, result) {
+
+                //check to insert with assert
+                assert.equal(null, err);
+                assert.equal(1, result.insertedCount);
+                //display result of inssert on console
+                console.log("insertOne Success: " + result.insertedCount);  
+            }
+
         );
 
-        //MongoDBのクローズ
+        //close MongoDB
         client.close();
         console.log("MongoDB Close");
 

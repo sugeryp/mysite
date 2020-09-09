@@ -1,5 +1,5 @@
 {
-  "name": "MongoNode",
+  "name": "mongonode",
   "version": "0.0.1",
   "private": true,
   "scripts": {

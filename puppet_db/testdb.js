@@ -7,21 +7,21 @@ const url = 'mongodb://localhost:27017';
 
 const insertOne = function(req, res){
 
-    //MongoDBの接続
+    //connect to MongoDB
     MongoClient.connect(url, function(err, client) {
 
-        //DBの指定(testdb)
+        //destination of DB
         const db = client.db('puppet_test');
 
-        //登録用ドキュメント
+        //inserted test document
         var document = {name: "comera", price: 30000 , URL: "https://www.lll.jp"};
 
-        //insertOneの実行
+        //execute insertOne
         db.collection('test1').insertOne(
             document
         );
 
-        //MongoDBのクローズ
+        //close MongoDB
         client.close();
         console.log("MongoDB Close");
 

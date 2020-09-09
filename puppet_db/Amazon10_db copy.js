@@ -14,7 +14,7 @@ const insertMany = function(document){
         const db = client.db('puppet_test');
 
         //execute insertOne
-        db.collection('test3').insertMany(
+        db.collection('test2').insertMany(
             document
         );
 
@@ -73,3 +73,26 @@ const getURL = async () => {
 }
 
 getURL();
+
+const findAll = function(){
+
+    //connect to MongoDB
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
+
+        //destination of DB
+        const db = client.db('puppet_test');
+
+        //execute insertOne
+        db.collection('test2').find().each(function(err, docs) {
+            console.log('find start')
+            console.log(docs);
+    })
+
+        //close MongoDB
+        client.close();
+        if(!err) console.log("find and exit");
+
+	});
+};
+
+findAll();
