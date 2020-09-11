@@ -8,13 +8,13 @@ const url = 'mongodb://localhost:27017';
 const insertMany = function(document){
 
     //connect to MongoDB
-    MongoClient.connect(url, function(err, client) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, async function(err, client) {
 
         //destination of DB
         const db = client.db('puppet_test');
 
         //execute insertOne
-        db.collection('test3').insertMany(
+        await db.collection('test3').insertMany(
             document
         );
 
