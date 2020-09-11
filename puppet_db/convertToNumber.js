@@ -1,4 +1,3 @@
-const ObjectId = require('mongodb').ObjectID;
 const MongoClient = require('mongodb').MongoClient;
 
 // MongoDB Listener URL
