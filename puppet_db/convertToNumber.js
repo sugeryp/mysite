@@ -1,5 +1,3 @@
-const { find } = require('../MongoNode/routes/mongo/find');
-
 const ObjectId = require('mongodb').ObjectID;
 const MongoClient = require('mongodb').MongoClient;
 
