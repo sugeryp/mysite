@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 // MongoDB Listener URL
 const url = 'mongodb://localhost:27017';
 
-// MongoDB update
+// updatePriceUndigit2Digit main
 const updatePriceUndigit2Digit = async (daCollection) => {
 
     //connect to MongoDB
@@ -38,21 +38,17 @@ const updatePriceUndigit2Digit = async (daCollection) => {
     await collection.find(queryUnDigit).forEach((docs) => {
         if (typeof docs == "object") {
             if ("price" in docs) {
+                // convert zenkaku price to hankaku price
                 let price = zenkakuNumber2Hankaku(docs.price);
                 if (price) {
+                    //delete UndigitWord of Price
                     let digitPrice = deleteUnDigitWord(price);
-                    //return { _id: ObjectId(docs._id.toHexString()) };
-                    //return [{ _id: docs._id}, digitPrice];
                     console.log({ _id: docs._id});
-                    //return { _id: docs._id};
                     if (docs._id) bulk.find({ _id: docs._id}).updateOne(
                         { $set: { price: digitPrice} }
                     );
                 }
             }  
-        }
-        else {
-            console.log(docs);
         }
     });
     await bulk.execute();
