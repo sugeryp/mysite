@@ -4,21 +4,21 @@ const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
 
 // updatePriceUndigit2Digit main
-const updatePriceUndigit2Digit = async (daCollection) => {
+const compairePrice = async (daCollection) => {
 
-    //connect to MongoDB
     const client = await MongoClient.connect(url, 
         { useUnifiedTopology: true }
     );
 
-    //destination of DB
     const db = client.db('puppet_test');
 
-    // execute find
     const collection = db.collection(daCollection);
 
-    //const query = {price: new RegExp("\\D")};
-    const queryUnDigit = { price: /\D/ };
+    //match conditions
+
+    //group conditions
+    const queryCheapest = { $group: {}};
+
 
     // zenkaku converter
     const zenkakuNumber2Hankaku = (str) => {
@@ -56,6 +56,6 @@ const updatePriceUndigit2Digit = async (daCollection) => {
     console.log("MongoDB Close");
 };
 
+// for test 
 let daCollection = process.argv[2];
-
 updatePriceUndigit2Digit(daCollection);
