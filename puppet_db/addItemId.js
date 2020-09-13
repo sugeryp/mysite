@@ -11,8 +11,8 @@ const addItemId = async (itemCollectionName, salesCollectionName) => {
 
     const db = client.db('puppet_test');
 
-    const itemCollection = db.collection(itemCollectionName);
     const salesCollection = db.collection(salesCollectionName);
+    const bulk = salesCollection.initializeUnorderedBulkOp();
 
     const makeFindQuery = (requirements) => {
         let queryRequirements = 0;
@@ -50,9 +50,25 @@ const addItemId = async (itemCollectionName, salesCollectionName) => {
         return queryRequirements;
     }
 
-    const bulk = collection.initializeUnorderedBulkOp();
+    const getAllItems = async (itemCollectionName) => {
+        const itemCollection = db.collection(itemCollectionName);
+        const items = [];
+        await itemCollection.find().forEach((docs) => {
+            if (typeof docs == "object") {
+                if ("itemID" in docs && "Requirements" in docs) {
+                    items.push(docs);
+                }  
+            }
+        });
+        if (!(items.length == 0)) {
+            return items
+        } else {
+            return 0;
+        }
+    }
 
-    // get all items
+    console.log(await getAllItems(itemCollectionName));
+    /*
     await itemCollection.find().forEach((docs) => {
         if (typeof docs == "object") {
             if ("itemId" in docs && "requirements" in docs) {
@@ -69,7 +85,8 @@ const addItemId = async (itemCollectionName, salesCollectionName) => {
             }  
         }
     });
-    await bulk.execute();
+    */
+    //await bulk.execute();
     client.close();
     console.log("MongoDB Close");
 };
