@@ -8,17 +8,15 @@ const addItemId = async (itemCollectionName, salesCollectionName) => {
     const client = await MongoClient.connect(url, 
         { useUnifiedTopology: true }
     );
-
     const db = client.db('puppet_test');
-
     const salesCollection = db.collection(salesCollectionName);
     const bulk = salesCollection.initializeUnorderedBulkOp();
 
     const makeFindQuery = (requirements) => {
         let queryRequirements = 0;
         const findConditions = [];
-        if (Number.isInteger(requirements.minPrice)) findConditions.push({ price: {$lte: requirements.minPrice}});
-        if (Number.isInteger(requirements.maxPrice)) findConditions.push({ price: {$gte: requirements.maxPrice}});
+        if (Number.isInteger(requirements.minPrice)) findConditions.push({ price: {$gte: requirements.minPrice}});
+        if (Number.isInteger(requirements.maxPrice)) findConditions.push({ price: {$lte: requirements.maxPrice}});
         if (Array.isArray(requirements.keywords)) {      
             for (value of requirements.keywords) {
                 // if keyword is number or string, add condition into query
@@ -60,38 +58,41 @@ const addItemId = async (itemCollectionName, salesCollectionName) => {
                 }  
             }
         });
-        if (!(items.length == 0)) {
-            return items
-        } else {
-            return 0;
-        }
+        return items;
+    }
+    /** for check
+    for (item of await getAllItems(itemCollectionName)) {
+        console.log(item.Requirements);
+        console.log(makeFindQuery(item.Requirements).$and);
+        await salesCollection.find(makeFindQuery(item.Requirements)).forEach((docs) => {console.log(docs)});
+    }
+     */
+
+    for (item of await getAllItems(itemCollectionName)) {
+        await salesCollection.find(makeFindQuery(item.Requirements)).forEach((docs) => {
+            if (typeof docs == "object") {
+                if ("_id" in docs && "itemID" in item) {
+                   if (!("itemID" in docs)) {
+                       bulk.find({ _id: docs._id}).updateOne(
+                            { $set: { itemID: [item.itemID]} }
+                        );
+                    // push itemID, only if sales's document doesn't have item's itemID
+                    } else if (docs.itemID.indexOf(item.itemID) == -1) { 
+                        bulk.find({ _id: docs._id}).updateOne(
+                            { $set: {[`itemID.${docs.itemID.length}`]: item.itemID}}
+                        );
+                    }
+                }
+            }
+        });
     }
 
-    console.log(await getAllItems(itemCollectionName));
-    /*
-    await itemCollection.find().forEach((docs) => {
-        if (typeof docs == "object") {
-            if ("itemId" in docs && "requirements" in docs) {
-                // convert zenkaku price to hankaku price
-                let price = zenkakuNumber2Hankaku(docs.price);
-                if (price) {
-                    //delete UndigitWord of Price
-                    let digitPrice = deleteUnDigitWord(price);
-                    // console.log({ _id: docs._id});
-                    if (docs._id) bulk.find({ _id: docs._id}).updateOne(
-                        { $set: { price: digitPrice} }
-                    );
-                }
-            }  
-        }
-    });
-    */
-    //await bulk.execute();
+    if (bulk.length) await bulk.execute();
     client.close();
-    console.log("MongoDB Close");
+    return (bulk.length)
 };
 
 // for test 
 let itemCollection = process.argv[2];
 let salesCollection = process.argv[3];
-addItemId(itemCollection, salesCollection);
+addItemId(itemCollection, salesCollection).then((result) => {console.log("update:" + result)})

@@ -15,7 +15,8 @@ const updatePriceUndigit2Digit = async (daCollection) => {
     const collection = db.collection(daCollection);
 
     //find condition
-    const queryUnDigit = { price: /\D/ };
+    //const queryUnDigit = { price: /\D/ };
+    const queryUnDigit = { price: {$type: "string"} };
 
     // zenkaku converter
     const zenkakuNumber2Hankaku = (str) => {
@@ -42,7 +43,7 @@ const updatePriceUndigit2Digit = async (daCollection) => {
                     let digitPrice = deleteUnDigitWord(price);
                     // console.log({ _id: docs._id});
                     if (docs._id) bulk.find({ _id: docs._id}).updateOne(
-                        { $set: { price: digitPrice} }
+                        { $set: { price: Number(digitPrice)} }
                     );
                 }
             }  
