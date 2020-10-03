@@ -69,6 +69,7 @@ const addItemId = async (itemCollectionName, salesCollectionName) => {
      */
 
     for (item of await getAllItems(itemCollectionName)) {
+        //console.log(makeFindQuery(item.Requirements));
         await salesCollection.find(makeFindQuery(item.Requirements)).forEach((docs) => {
             if (typeof docs == "object") {
                 if ("_id" in docs && "itemID" in item) {

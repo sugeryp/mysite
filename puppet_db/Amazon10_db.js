@@ -14,7 +14,7 @@ const insertMany = function(document){
         const db = client.db('puppet_test');
 
         //execute insertOne
-        await db.collection('test3').insertMany(
+        await db.collection('Amazon2').insertMany(
             document
         );
 
@@ -32,6 +32,40 @@ if (!keyword) {
     process.exit();
 }
 
+const trimURLInSaleObjInSales = (sales) => {
+    const trimAmazonURL = (url) => {
+        reg1 = /(?<=www.amazon.co.jp).*(?=\/dp\/)/;
+        reg2 = /(?<=\/ref=sr).*/;
+        reg3 = /\/ref=sr/;
+        return url.replace(reg1, "").replace(reg2, "").replace(reg3, "/");
+    }
+
+    const detectSponsSaleObj = (sale) => {
+        return sale.match(/\/gp\//);
+    } 
+
+    return sales.map(sale => {
+        if (sale) {
+            let url = sale.url;
+            if (typeof sale.url == "string") {
+                url = trimAmazonURL(sale.url);
+            }
+            return {
+                title: sale.title,
+                url: url,
+                price: sale.price,
+                date: sale.date
+            }
+        }
+    }).filter(sale => {
+        if (sale) {
+            if (typeof sale.url == "string") {
+                return !detectSponsSaleObj(sale.url);
+            }   
+        }
+    });
+}
+
 const getURL = async () => {
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
@@ -46,7 +80,7 @@ const getURL = async () => {
     await page.click(".nav-search-submit.nav-sprite .nav-input");
     await page.waitForNavigation();
 
-    // get result of surching
+    // get result of search
     const sites = async () => {
         return page.$$eval(".a-section.a-spacing-medium", anchors => {
             return anchors.map(item => {
@@ -56,17 +90,19 @@ const getURL = async () => {
                 return {
                     title: item.querySelector("h2 span").textContent.trim(),
                     url: item.querySelector(".a-link-normal.a-text-normal").href,
-                    price: item.querySelector(".a-price-whole").textContent.trim()
+                    price: item.querySelector(".a-price-whole").textContent.trim(),
+                    date: Date.now()
                 };
             });
         });
     }
-    insertMany(await sites());
+ 
+    insertMany(trimURLInSaleObjInSales(await sites()));
 
     for (i = 1; i <= 10; i++) { 
         await page.click(".a-last");
         await page.waitForSelector(".a-last");
-        insertMany(await sites());
+        insertMany(trimURLInSaleObjInSales(await sites()));
     }
 
     await browser.close();

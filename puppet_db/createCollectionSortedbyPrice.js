@@ -14,7 +14,7 @@ const createCollectionSortedbyPrice = async (salesCollectionName, itemID) => {
 
     const salesCollection = db.collection(salesCollectionName);
 
-    const cheapSalesCollectionName = `cheap_sales_itemID_${itemID}`;
+    const cheapSalesCollectionName = `cheap_sales_${salesCollectionName}_itemID_${itemID}`;
 
     //aggregate query to make collection sales items are sorted by price low to high, and make new collection
     const querySortByPrice = [
