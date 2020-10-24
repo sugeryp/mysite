@@ -1,1 +1,0 @@
-const economicIndependence = new independence();
