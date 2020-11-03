@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+html {
+    font-size: 16px;
+}
+
+body {
+    color: #333;
+    font-family: "Roboto", "Noto Sans JP", sans-serif;
+    font-feature-settings: "palt";
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sp { display: none !important; }
+  
+.header-catch {
+    height: 1400px;
+    width: 100%;
+    background-image: url(../images/header/kv_catch.png);
+    background-color: gray;
+}
+
+.header-center {
+    height: 600px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header-center img {
+    height: 100%;
+}
+  
+.logo {
+    height: 30%;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.site-title {
+    height: 70%;
+    padding-bottom: 40px;
+}

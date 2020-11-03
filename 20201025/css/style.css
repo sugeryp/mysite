@@ -1,0 +1,363 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    font-weight: 400;
+    src: local("Noto Sans CJK JP"),
+         url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.otf) format('opentype');
+ }
+html{
+    font-size: 62.5%; /*16px×62.5％＝10px*/
+}
+body{
+    color:#333;
+    font-family: "Roboto","Noto Sans JP",sans-serif;
+    font-size:1.6rem;
+    line-height: 1.85;
+    font-feature-settings: "palt";
+    later-spacing:0.05em;
+    -webkit-font-somoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+.text-center{
+    text-align: center;
+}
+.pc__img{
+}
+.sp__img{
+    display: none;
+}
+/*-------------------------
+header
+--------------------------*/
+.header{
+    position: relative;
+    height: 600px;
+    background-image: url("../images/header/kv_img.jpg");
+    background-size: cover;
+}
+.header-catch{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-45%);
+    background-color: rgba(7,133,123,0.68);
+}
+.header .logo{
+    display: block;
+    padding:16px 0;
+}
+.site-title{
+    padding-bottom: 40px;
+}
+
+/*-------------------------
+section
+--------------------------*/
+.inner{
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 80px 0 140px;
+}
+.inner-b{
+    padding-bottom: 64px;
+}
+.section-title{
+    padding: 16px 0;
+    background-color: #454848;
+    color: #fff;
+    font-size: 3.6rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em
+}
+.section-title__green{
+    background-color: #07857b;
+}
+
+/*-------------------------
+guest
+--------------------------*/
+.guest-name{
+    margin-bottom: 60px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/*-------------------------
+schedule
+--------------------------*/
+.schedule-list{
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: -webkit-wrap;
+    flex-wrap: wrap;
+}
+.schedule-time{
+    flex-shrink: 0;
+}
+.schdule-detail{
+    flex-grow: 1;
+}
+.schdule-img{
+    width: 100%;
+    text-align: center;
+}
+/*-------------------------
+access
+--------------------------*/
+.maps-outer{
+    position: relative;
+    padding-top: 26.25%;
+}
+.maps{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*-------------------------
+entry
+--------------------------*/
+.info-title{
+    font-weight: bold;
+}
+.info-detail{
+    margin-bottom: 40px;
+}
+.info-detail:last-of-type{
+    margin-bottom: 120px;
+}
+.form{
+    max-width: 550px;
+    margin: 0 auto;
+}
+.form-item{
+    margin-bottom: 72px;
+}
+.form-parts{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    border-bottom: solid 1px #999;
+    font-size: 1.6rem;
+    outline: none;
+}
+.btn{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 360px;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0;
+    background-color: #07857b;
+    boder: none;
+    color: #fff;
+    font-size: 2.4rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+.form-title{
+    margin-right: 36px;
+}
+.label-radio{
+    margin-left: 36px;
+}
+.form-parts__radio{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #c3c3c3;
+    vertical-align: -6px;
+    outline: none;
+}
+.form-parts__radio:checked{
+    background-color: #07857b;
+    box-shadow: 0 0 0 2px #fff,0 0 0 3px #07857b;
+    
+}
+/*-------------------------
+footer
+--------------------------*/
+.footer{
+    padding: 80px 0;
+    background-color: #454548;
+    color: #fff
+}
+.footer .logo{
+    margin-bottom: 32px;
+}
+.footer-text{
+    margin-bottom: 64px;
+    color: #fff
+}
+
+@media screen and (max-width:768px) {
+.pc__img{
+    display: none;
+    }
+.sp__img{
+    display: block;
+    max-width:83.2%;
+   margin: 0 auto;
+    }
+.header{
+    height: 300px;
+    background-image: url("../images/header/kv_img__sp.jpg");
+}
+.header-catch{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-45%);
+    background-color: rgba(7,133,123,0.68);
+}
+.site-title{
+    padding-bottom:16px;
+    }
+/*-------------------------
+section
+--------------------------*/
+.inner{
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 40px 20px 70px;
+    font-size: 1.7rem;
+}
+
+.section-title{
+    font-size: 2rem;
+}
+
+/*-------------------------
+guest
+--------------------------*/
+.guest-name{
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 50px
+} 
+
+/*-------------------------
+access
+--------------------------*/
+.inner-sp{
+    padding-bottom: 40px 
+}
+.maps-outer{
+    position: relative;
+    padding-top: 75%;
+}
+
+.maps-sp{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+}
+/*-------------------------
+entry
+--------------------------*/
+.info-detail{
+    margin-bottom: 40px;
+}
+.info-detail:last-of-type{
+    margin-bottom: 32px;
+}
+.form{
+    max-width: 550px;
+    margin: 0 auto;
+
+}
+.form-item{
+    margin-bottom: 40px;
+}
+.form-item:last-of-type{
+    margin-bottom: 56px;
+}
+.form-parts{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: solid 1px #999;
+    font-size: 1.6rem;
+    outline: none;
+}
+.btn{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 360px;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0;
+    background-color: #07857b;
+    boder: none;
+    color: #fff;
+    font-size: 2.4rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+.form-title{
+    margin-bottom: 24px
+}
+.label-radio{
+    margin-left: 0;
+    margin-right: 20px;
+}
+.form-parts__radio{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #c3c3c3;
+    vertical-align: -6px;
+    outline: none;
+}
+.form-parts__radio:checked{
+    background-color: #07857b;
+    box-shadow: 0 0 0 2px #fff,0 0 0 3px #07857b;   
+}
+
+/*-------------------------
+footer
+--------------------------*/
+.footer{
+    padding: 40px 0;
+    background-color: #454548;
+    color: #fff
+}
+.footer .logo{
+    margin-bottom: 32px;
+}
+.footer-text{
+    margin-bottom:32px;
+    color: #fff
+}
+    
+}

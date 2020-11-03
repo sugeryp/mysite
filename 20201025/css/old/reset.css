@@ -1,0 +1,4 @@
+@media all and (max-width: 670px) {
+    .pc { display: block !important; }
+    .sp { display: block !important; }
+}
